@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Main from './pages/main'
+import RecommendedPage from './pages/RecommendedPage'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
+          <Route path="/recommended" element={<RecommendedPage />} />
         </Routes>
       </BrowserRouter>
     </>

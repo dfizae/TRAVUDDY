@@ -1,2 +1,42 @@
 /* global.css */
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./fonts/Paperlogy-Light.ttf') format('ttf'); /* 경로 확인 필수 */
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./fonts/Paperlogy-Regular.ttf') format('ttf'); /* 경로 확인 필수 */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./fonts/Paperlogy-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./fonts/Paperlogy-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Paperlogy';
+  src: url('./fonts/Paperlogy-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Paperlogy';
+    font-size: 16px;
+}
