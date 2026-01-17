@@ -43,7 +43,7 @@ GLYF/
 │   │       └── pics/ : 사진 저장
 │   │
 │   ├── components/: 공통 컴포넌트 관리
-│   │   ├── 
+│   │   ├── Gnb.tsx : 상단 네비게이션 컴포넌트
 │   │   ├── 
 │   │
 │   │
@@ -51,7 +51,7 @@ GLYF/
 │   │   ├── Main/ : 메인페이지
 │   │        ├── index.tsx: 메인페이지 최상위 컴포넌트
 │   │        ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
-│   │        ├── 
+│   │        ├── HeroSection/: Hero 섹션 컴포넌트
 │   │        ├── 
 │   │        ├── 
 │   │ 
