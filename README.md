@@ -52,9 +52,12 @@ GLYF/
 │   │        ├── index.tsx: 메인페이지 최상위 컴포넌트
 │   │        ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
 │   │        ├── HeroSection/: Hero 섹션 컴포넌트
-│   │        ├── 
+│   │        ├── RecommendedCountrySection: 추천 국가 컴포넌트
 │   │        ├── 
 │   │ 
+│   ├── types/
+│   │   ├── global.d.ts : 전역 타입 파일 (swiper 관련)
+│   │
 │   ├── App.css
 │   ├── App.tsx : 리액트 애플리케이션의 시작점
 │   └── main.tsx
