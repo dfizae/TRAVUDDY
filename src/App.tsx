@@ -3,18 +3,20 @@ import './App.css'
 import Main from './pages/main'
 import RecommendedPage from './pages/RecommendedPage'
 import Gnb from './components/Gnb'
+import Footer from './components/Footer'
 
 function App() {
 
   return (
     <>
-          <Gnb/>
+      <Gnb/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/recommended" element={<RecommendedPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   )
 }
