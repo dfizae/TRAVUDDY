@@ -21,7 +21,7 @@ export default function HeroSection() {
                     "Travuddy is wherever you go"
                 </h1>
 
-                <form action="" className="w-full max-w-125 relative mb-11">
+                <form action="" className="w-full  relative mb-11">
                     <div className="relative flex items-center">
                         <span className="absolute left-5 text-gray-400">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
