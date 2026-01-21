@@ -4,7 +4,7 @@ import RecommendedSection from "./RecommendedSection";
 
 export default function Main() {
     return (
-            <main className="w-full bg-[#FAF9F8] shadow-2xl">
+            <main className="w-full">
                 <HeroSection />
                 <RecommendedSection />
                 <RecommendedCountrySection />
