@@ -26,13 +26,28 @@ export default function RecommendedCountrySection() {
                 </div>
                 <Swiper
                   modules={[Autoplay]}
-                  spaceBetween={16}
+                  spaceBetween={12}
                   slidesPerView={1.2}
                   centeredSlides={true}
                   loop={true}
                   autoplay={{
                     delay: 2500, // 2.5초마다 전환
                     disableOnInteraction: false, // 사용자 상호작용(드래그 등) 후에도 자동 재생 유지
+                  }}
+                  breakpoints={{
+
+                    560: {
+                        slidesPerView: 2.5,
+                        centeredSlides: false,
+                    },
+                    740: {
+                        slidesPerView: 2.5,
+                        centeredSlides: false,
+                    },
+                    1024: {
+                        slidesPerView: 4.5,
+                        centeredSlides: false,
+                    }
                   }}
                   className="px-6"
                 >
