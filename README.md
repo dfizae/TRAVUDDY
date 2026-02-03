@@ -49,11 +49,18 @@ GLYF/
 │   │
 │   ├── pages/
 │   │   ├── Main/ : 메인페이지
+│   │   │    ├── index.tsx: 메인페이지 최상위 컴포넌트
+│   │   │    ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
+│   │   │    ├── HeroSection/: Hero 섹션 컴포넌트
+│   │   │    ├── RecommendedCountrySection: 추천 국가 컴포넌트
+│   │   │    ├── 
+│   │   │
+│   │   ├── GuidePage/ : 메인페이지
 │   │        ├── index.tsx: 메인페이지 최상위 컴포넌트
 │   │        ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
 │   │        ├── HeroSection/: Hero 섹션 컴포넌트
 │   │        ├── RecommendedCountrySection: 추천 국가 컴포넌트
-│   │        ├── 
+
 │   │ 
 │   ├── types/
 │   │   ├── global.d.ts : 전역 타입 파일 (swiper 관련)
@@ -73,3 +80,12 @@ GLYF/
 └── vite.config.ts
 ```
 
+## 🗓️ 개발 과정
+
+- **2026-01-14 ~ 2026-01-25**
+- [x] 메인페이지 작성 (Main)
+    - [x] HeroSection, RecommendedSection, RecommendedCountrySection 작성
+
+- **2026-01-25 ~ 2026-02**
+- [x] 가이드페이지 작성 (GuidePage)
+    - [x] 

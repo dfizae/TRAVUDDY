@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function RecommendedSection() {
     // 1. 데이터를 state로 관리하고, liked 속성을 추가합니다.
     const [guides, setGuides] = useState([
-        { id: 1, image: '../../../../public/images/pics/RecommendedLukas.svg', name: "Lukas", location: "Korea, Seoul", star_rate: 4.6, hashtag_1: '#Dog_Lover', hashtag_2: '#Car', isLiked: true },
+        { id: 1, image: '../../../../public/images/pics/RecommendedLukas.svg', name: "Lukas", location: "Korea, Seoul", star_rate: 4.6, hashtag_1: '#Dog_Lover', hashtag_2: '#Car', hashtag_3: '#Photographer', hashtag_4: '#German', hashtag_5: '#Korean', hashtag_6: '#Spanish', isLiked: true },
         { id: 2, image: '../../../../public/images/pics/RecommendedJiwon.svg', name: "Ji-won", location: "Korea, Jeju", star_rate: 4.6, hashtag_1: '#Kids_Specialist', hashtag_2: '#Local Foodie', isLiked: false },
         { id: 3, image: '../../../../public/images/pics/RecommendedSarah.svg', name: "Sarah", location: "Korea, Busan", star_rate: 4.6, hashtag_1: '#Expat_Life', hashtag_2: '#Hiking', isLiked: false },
     ]);
@@ -26,7 +26,7 @@ export default function RecommendedSection() {
             </div>
             <ul className="pt-5">
                 {guides.map((data) => (
-                    <Link to={`/Guide/${data.name}`} key={data.id}>
+                    <Link to={`/Guide/${data.name}`} state={data} key={data.id}>
                         <li className="flex mt-5 bg-white rounded-lg relative"> {/* relative 추가 */}
                             
                             {/* 3. 하트 버튼 영역 */}
@@ -59,7 +59,12 @@ export default function RecommendedSection() {
                                     <img src="../../../../public/images/icons/ico-rate.svg" alt="별점" /> 
                                     {data.star_rate}
                                 </p>
-                                {/* 해시태그 생략... */}
+                                 <div className="border-stone-300 border-2 border-solid rounded-4xl flex items-center w-fit mt-1.5">
+                                    <span className="text-[#938F8D] text-sm font-semibold px-2.5">{data.hashtag_1}</span>
+                                </div>
+                                <div className="border-stone-300 border-2 border-solid rounded-4xl flex items-center w-fit">
+                                    <span className="text-[#938F8D] text-sm font-semibold px-2.5">{data.hashtag_2}</span>
+                                </div>
                             </div>
                         </li>
                     </Link>
