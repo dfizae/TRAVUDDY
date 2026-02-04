@@ -47,7 +47,7 @@ export default function GuideInformation(){
             >
                 <div className="w-full">
                     <ProfileSection data={data}/>
-                    <InformationSection data={data}/>
+                    <InformationSection/>
                 </div>
             </motion.div>
             
