@@ -87,8 +87,8 @@ GLYF/
 - [x] 메인페이지 작성 (Main)
     - [x] HeroSection, RecommendedSection, RecommendedCountrySection 작성
 
-- **2026-01-25 ~ 2026-02**
+- **2026-01-25 ~ 2026-02-10**
 - [x] 가이드페이지 작성 (GuideInformation)
     - [x] CourseLayout 작성
-    - [o] ReviewLayout 작성
+    - [x] ReviewLayout 작성
     ...
