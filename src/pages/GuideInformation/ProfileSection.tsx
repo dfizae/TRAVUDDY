@@ -124,11 +124,11 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                 </button>
             </div>
 
-            <hr className="my-4 h-0.5"/>
+            <hr className="border-0 border-t border-[#E6E2DF] mt-6 mx-4" />
 
             {/* 가이드의 차량, 사용 언어, 사진 스킬 작성 */}
             
-            <div className="flex flex-col gap-4 justify-center">
+            <div className="flex flex-col gap-4 justify-center py-3.5">
                 <p className="flex gap-4 pl-4">
                     <img src="../../../../public/images/icons/ico-car.svg" alt="차량" />
                     <span className="font-regular text-sm">Private SUV (Up to 6)</span>
@@ -143,7 +143,8 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                 </p>
             </div>  
 
-            <hr className="border-t border-[#938F8D]"/>
+            <hr className="border-0 border-t border-[#E6E2DF] mb-2.5 mx-4" />
+
         </>
     );
 }

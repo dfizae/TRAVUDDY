@@ -71,3 +71,12 @@ body {
     font-family: 'Paperlogy';
     font-size: 16px;
 }
+
+.scrollbar-hide-thin {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide-thin::-webkit-scrollbar {
+  display: none;
+}

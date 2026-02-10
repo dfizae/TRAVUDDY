@@ -3,7 +3,7 @@ import CourseLayout from "./Layouts/CourseLayout";
 import ReviewLayout from "./Layouts/ReviewLayout";
 
 export default function InformationSection() {
-    const [isClicked, setIsClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(true);
 
     const handleToggleClick = (section: string) => {
         if (section === "course") {
@@ -16,7 +16,7 @@ export default function InformationSection() {
     return (
         <>
             {/* toggle 버튼 섹션 */}
-            <div className="flex gap-3 items-center justify-center px-4 py-3 border-t border-b border-[#E6E2DF] mb-5">
+            <div className="flex gap-3 items-center justify-center px-4 py-5 mb-5">
                 <button className="flex flex-col gap-1 items-center border-b px-12" onClick={() => handleToggleClick("course")}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.8929 23.0357C18.047 23.0357 23.0357 18.047 23.0357 11.8929C23.0357 5.73883 18.047 0.75 11.8929 0.75C5.73883 0.75 0.75 5.73883 0.75 11.8929C0.75 18.047 5.73883 23.0357 11.8929 23.0357Z" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

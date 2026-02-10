@@ -2,39 +2,39 @@ import { useState } from "react";
 import { DataCourse } from "./data/DataCourse";
 
 export default function CourseLayout() {
+    const [likedByIndex, setLikedByIndex] = useState<Record<number, boolean>>({});
 
-    const [isLiked, setIsLiked] = useState(false);
-
-    const toggleLike = (e: React.MouseEvent<HTMLDivElement>) => {
+    const toggleLike = (index: number) => (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
         e.stopPropagation();
-        setIsLiked(!isLiked);
+        setLikedByIndex((prev) => ({
+            ...prev,
+            [index]: !prev[index],
+        }));
     };
 
     return (
         <>
-            <ul className="px-4 pt-7.5 pb-5">
+            <ul className="px-4">
                 {DataCourse.map((course, index) => (
-                    <li key={index} className="mb-4 last:mb-0 rounded-lg bg-white">
-                        <div className="px-4 -mt-22 relative z-20 mb-5">
-                            <div className="rounded-2xl p-4 relative">
-                                {/* 하트 버튼 */}
-                                <div
-                                    onClick={toggleLike}
-                                    className="absolute top-4 left-4 z-30 cursor-pointer p-2"
-                                >
-                                    <img
-                                        src={isLiked
-                                            ? "../../../../public/images/icons/ico-heart.svg"
-                                            : "../../../../public/images/icons/ico-emptyheart.svg"
-                                        }
-                                        alt="좋아요"
-                                        className="w-6 h-6"
-                                    />
-                                </div>
+                    <li key={index} className="mb-4 rounded-lg bg-white">
+                        <div className="relative">
+                            <img src={course.img_src} alt={course.img_alt} className="w-full bg-cover bg-center bg-no-repeat"/>
+                            {/* 하트 버튼 */}
+                            <div
+                                onClick={toggleLike(index)}
+                                className="absolute top-2 left-2 z-30 cursor-pointer p-2"
+                            >
+                                <img
+                                    src={likedByIndex[index]
+                                        ? "../../../../public/images/icons/ico-heart.svg"
+                                        : "../../../../public/images/icons/ico-emptyheart.svg"
+                                    }
+                                    alt="좋아요"
+                                    className="w-6 h-6"
+                                />
                             </div>
                         </div>
-                        <img src={course.img_src} alt={course.img_alt} className="" />
                         <div className="flex flex-col gap-2 pt-2 pb-2.5 px-2">
                             <div className="flex justify-between">
                                 <span className="flex items-center text-xs text-[#938F8D] gap-1.5 mb-0.5">
