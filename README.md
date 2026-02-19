@@ -50,8 +50,9 @@ GLYF/
 │   ├── pages/
 │   │   ├── Main/ : 메인페이지
 │   │   │    ├── index.tsx: 메인페이지 최상위 컴포넌트
-│   │   │    ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
 │   │   │    ├── HeroSection/: Hero 섹션 컴포넌트
+│   │   │    ├── RecommendedSection/: 추천 친구 컴포넌트 (Recommended Buddy)
+│   │   │    ├── RecommendedTourSection: 추천 투어 컴포넌트
 │   │   │    └── RecommendedCountrySection: 추천 국가 컴포넌트
 │   │   │    
 │   │   │
@@ -87,7 +88,7 @@ GLYF/
 - [x] 메인페이지 작성 (Main)
     - [x] HeroSection, RecommendedSection, RecommendedCountrySection 작성
 
-- **2026-01-25 ~ 2026-02-10**
+- **2026-01-25 ~ 2026-02-19**
 - [x] 가이드페이지 작성 (GuideInformation)
     - [x] CourseLayout 작성
     - [x] ReviewLayout 작성
