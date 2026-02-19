@@ -25,8 +25,8 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                     >
                         <img 
                             src={isLiked 
-                                ? "../../../../public/images/icons/ico-heart.svg"
-                                : "../../../../public/images/icons/ico-emptyheart.svg"
+                                ? "/images/icons/ico-heart.svg"
+                                : "/images/icons/ico-emptyheart.svg"
                             } 
                             alt="좋아요" 
                             className="w-6 h-6"
