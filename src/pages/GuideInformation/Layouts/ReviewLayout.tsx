@@ -41,13 +41,15 @@ export default function ReviewLayout() {
                             </button>
                         </div>
 
-                        <div className="mt-3">
-                            <img
-                                src={review.coverImgSrc}
-                                alt={review.coverImgAlt}
-                                className="h-44 w-full object-cover"
-                            />
-                        </div>
+                        {review.coverImgSrc && (
+                            <div className="mt-3">
+                                <img
+                                    src={review.coverImgSrc}
+                                    alt={review.coverImgAlt}
+                                    className="h-44 w-full object-cover"
+                                />
+                            </div>
+                        )}
 
                         <div className="px-4 pb-4 pt-3">
                             <div className="flex items-center justify-between">
