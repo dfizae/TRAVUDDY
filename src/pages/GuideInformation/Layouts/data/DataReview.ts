@@ -14,9 +14,9 @@ interface ReviewData {
 
 export const DataReview: ReviewData[] = [
     {
-        coverImgSrc: "../../../../public/images/pics/img-reviewCover1.svg",
+        coverImgSrc: "/images/pics/img-reviewCover1.svg",
         coverImgAlt: "Review cover 1",
-        profileImgSrc: "../../../../public/images/pics/img-review_Profile_1.svg",
+        profileImgSrc: "/images/pics/img-review_Profile_1.svg",
         profileImgAlt: "Reviewer profile 1",
         profileName: "Chloe M.",
         profileCountry: "Australia",
@@ -27,9 +27,9 @@ export const DataReview: ReviewData[] = [
         helpfulCount: 12,
     },
     {
-        coverImgSrc: "../../../../public/images/pics/img-reviewCover2.svg",
+        coverImgSrc: "/images/pics/img-reviewCover2.svg",
         coverImgAlt: "Review cover 2",
-        profileImgSrc: "../../../../public/images/pics/img-review_Profile_2.svg",
+        profileImgSrc: "/images/pics/img-review_Profile_2.svg",
         profileImgAlt: "Reviewer profile 2",
         profileName: "Yerim Lee",
         profileCountry: "Korea",
@@ -40,7 +40,7 @@ export const DataReview: ReviewData[] = [
         helpfulCount: 12,
     },
     {
-        profileImgSrc: "../../../../public/images/pics/img-reviewProfiledefault.svg",
+        profileImgSrc: "/images/pics/img-reviewProfiledefault.svg",
         profileImgAlt: "Reviewer profile 3",
         profileName: "David Tan",
         profileCountry: "Singapore",
@@ -51,7 +51,7 @@ export const DataReview: ReviewData[] = [
         helpfulCount: 7,
     },
     {
-        profileImgSrc: "../../../../public/images/pics/img-review_Profile_3.svg",
+        profileImgSrc: "/images/pics/img-review_Profile_3.svg",
         profileImgAlt: "Reviewer profile 3",
         profileName: "Rachel K.",
         profileCountry: "UK",

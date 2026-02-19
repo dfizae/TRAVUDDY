@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export default function RecommendedSection() {
     // 1. 데이터를 state로 관리하고, liked 속성을 추가합니다.
     const [guides, setGuides] = useState([
-        { id: 1, image: '../../../../public/images/pics/RecommendedLukas.svg', name: "Lukas", location: "Korea, Seoul", star_rate: 4.6, hashtag_1: '#Dog_Lover', hashtag_2: '#Car', hashtag_3: '#Photographer', hashtag_4: '#German', hashtag_5: '#Korean', hashtag_6: '#Spanish', isLiked: true },
-        { id: 2, image: '../../../../public/images/pics/RecommendedJiwon.svg', name: "Ji-won", location: "Korea, Jeju", star_rate: 4.6, hashtag_1: '#Kids_Specialist', hashtag_2: '#Local Foodie', isLiked: false },
-        { id: 3, image: '../../../../public/images/pics/RecommendedSarah.svg', name: "Sarah", location: "Korea, Busan", star_rate: 4.6, hashtag_1: '#Expat_Life', hashtag_2: '#Hiking', isLiked: false },
+        { id: 1, image: '/images/pics/RecommendedLukas.svg', name: "Lukas", location: "Korea, Seoul", star_rate: 4.6, hashtag_1: '#Dog_Lover', hashtag_2: '#Car', hashtag_3: '#Photographer', hashtag_4: '#German', hashtag_5: '#Korean', hashtag_6: '#Spanish', isLiked: true },
+        { id: 2, image: '/images/pics/RecommendedJiwon.svg', name: "Ji-won", location: "Korea, Jeju", star_rate: 4.6, hashtag_1: '#Kids_Specialist', hashtag_2: '#Local Foodie', isLiked: false },
+        { id: 3, image: '/images/pics/RecommendedSarah.svg', name: "Sarah", location: "Korea, Busan", star_rate: 4.6, hashtag_1: '#Expat_Life', hashtag_2: '#Hiking', isLiked: false },
     ]);
 
     // 2. 하트 클릭 핸들러
@@ -36,8 +36,8 @@ export default function RecommendedSection() {
                             >
                                 <img 
                                     src={data.isLiked 
-                                        ? "../../../../public/images/icons/ico-heart.svg" // 채워진 하트 아이콘 경로
-                                        : "../../../../public/images/icons/ico-emptyheart.svg"  // 빈 하트 아이콘 경로
+                                        ? "/images/icons/ico-heart.svg" // 채워진 하트 아이콘 경로
+                                        : "/images/icons/ico-emptyheart.svg"  // 빈 하트 아이콘 경로
                                     } 
                                     alt="좋아요" 
                                     className="w-6 h-6"
@@ -49,14 +49,14 @@ export default function RecommendedSection() {
                             <div className="flex flex-col gap-2.5 py-2.5 pl-3">
                                 <p className="font-semibold flex items-center gap-3 ">
                                     {data.name}
-                                    <img src="../../../../public/images/icons/ico-certified.svg" alt="인증"/>
+                                    <img src="/images/icons/ico-certified.svg" alt="인증"/>
                                 </p>
                                 <p className="flex items-center gap-2 text-sm text-[#938F8D]">
-                                    <img src="../../../../public/images/icons/ico-map.svg" alt="위치" />
+                                    <img src="/images/icons/ico-map.svg" alt="위치" />
                                     {data.location}
                                 </p>
                                 <p className="flex items-center text-sm text-[#D95500]">
-                                    <img src="../../../../public/images/icons/ico-rate.svg" alt="별점" /> 
+                                    <img src="/images/icons/ico-rate.svg" alt="별점" /> 
                                     {data.star_rate}
                                 </p>
                                  <div className="border-stone-300 border-2 border-solid rounded-4xl flex items-center w-fit mt-1.5">

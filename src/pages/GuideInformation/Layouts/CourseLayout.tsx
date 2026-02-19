@@ -27,8 +27,8 @@ export default function CourseLayout() {
                             >
                                 <img
                                     src={likedByIndex[index]
-                                        ? "../../../../public/images/icons/ico-heart.svg"
-                                        : "../../../../public/images/icons/ico-emptyheart.svg"
+                                        ? "/images/icons/ico-heart.svg"
+                                        : "/images/icons/ico-emptyheart.svg"
                                     }
                                     alt="좋아요"
                                     className="w-6 h-6"

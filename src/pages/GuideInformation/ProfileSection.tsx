@@ -36,7 +36,7 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                     <div className="flex gap-4">
                         {/* 프로필 사진 */}
                         <img 
-                            src="../../../../public/images/pics/RecommendedLukas.svg" 
+                            src="/images/pics/RecommendedLukas.svg" 
                             alt={data.name} 
                             className="rounded-2xl object-cover w-39 h-39 shrink-0" 
                         />
@@ -45,16 +45,16 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                         <div className="flex flex-col justify-end gap-2 grow">
                             <div className="flex items-center gap-2">
                                 <p className="font-semibold text-base">{data.name}</p>
-                                <img src="../../../../public/images/icons/ico-certified.svg" alt="공식계정 인증마크" className="w-4 h-4"/>
+                                <img src="/images/icons/ico-certified.svg" alt="공식계정 인증마크" className="w-4 h-4"/>
                             </div>
                         
                             <p className="flex items-center gap-2 text-xs text-[#938F8D]">
-                                <img src="../../../../public/images/icons/ico-map.svg" alt="위치" className="w-3 h-3"/>
+                                <img src="/images/icons/ico-map.svg" alt="위치" className="w-3 h-3"/>
                                 {data.location}
                             </p>
                         
                             <p className="flex items-center gap-1 text-sm text-[#D95500]">
-                                <img src="../../../../public/images/icons/ico-stars.svg" alt="별점" className="w-19 h-4"/> 
+                                <img src="/images/icons/ico-stars.svg" alt="별점" className="w-19 h-4"/> 
                                 {data.star_rate}
                             </p>
                         </div>
@@ -130,15 +130,15 @@ export default function ProfileSection({data}: {data: {name: string; location: s
             
             <div className="flex flex-col gap-4 justify-center py-3.5">
                 <p className="flex gap-4 pl-4">
-                    <img src="../../../../public/images/icons/ico-car.svg" alt="차량" />
+                    <img src="/images/icons/ico-car.svg" alt="차량" />
                     <span className="font-regular text-sm">Private SUV (Up to 6)</span>
                 </p>
                 <p className="flex gap-4 pl-4">
-                    <img src="../../../../public/images/icons/ico-language.svg" alt="언어" />
+                    <img src="/images/icons/ico-language.svg" alt="언어" />
                     <span className="font-regular text-sm">German, English, Korean</span>
                 </p>
                 <p className="flex gap-4 pl-4">
-                    <img src="../../../../public/images/icons/ico-camera.svg" alt="사진 스킬" />
+                    <img src="/images/icons/ico-camera.svg" alt="사진 스킬" />
                     <span className="font-regular text-sm">Complimentary Pro-Snapshots</span>
                 </p>
             </div>  

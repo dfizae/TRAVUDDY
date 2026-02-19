@@ -8,13 +8,13 @@ import 'swiper/css/autoplay';
 export default function RecommendedCountrySection() {
 
     const swiperImg = [
-        {img: '../../../../public/images/pics/img-Country1.svg' , alt: 'Korea'},
-        {img: '../../../../public/images/pics/img-Country2.svg' , alt: 'Ireland'},
-        {img: '../../../../public/images/pics/img-Country3.svg' , alt: 'Portugal'},
-        {img: '../../../../public/images/pics/img-Country4.svg' , alt: 'U.S.A'},
-        {img: '../../../../public/images/pics/img-Country5.svg' , alt: 'Spain'},
-        {img: '../../../../public/images/pics/img-Country6.svg' , alt: 'Vietnam'},
-        {img: '../../../../public/images/pics/img-Country7.svg' , alt: 'Japan'}
+        {img: '/images/pics/img-Country1.svg' , alt: 'Korea'},
+        {img: '/images/pics/img-Country2.svg' , alt: 'Ireland'},
+        {img: '/images/pics/img-Country3.svg' , alt: 'Portugal'},
+        {img: '/images/pics/img-Country4.svg' , alt: 'U.S.A'},
+        {img: '/images/pics/img-Country5.svg' , alt: 'Spain'},
+        {img: '/images/pics/img-Country6.svg' , alt: 'Vietnam'},
+        {img: '/images/pics/img-Country7.svg' , alt: 'Japan'}
     ];
 
     return(
