@@ -61,6 +61,8 @@ GLYF/
 │   │   │    ├── ProfileSection.tsx: 가이드 프로필 컴포넌트
 │   │   │    ├── InformationSection.tsx: 가이드 소개 컴포넌트
 │   │   │    └── Layouts/
+│   │   │        ├── data/ (코스와 리뷰 페이지 데이터 저장 파일 모음 폴더)
+│   │   │        ├── CourseDetailPanel.tsx: 코스 상세 페이지 컴포넌트        
 │   │            ├── CourseLayout.tsx: 코스 레이아웃
 │   │            └── ReviewLayout.tsx: 리뷰 레이아웃
 │   │ 
