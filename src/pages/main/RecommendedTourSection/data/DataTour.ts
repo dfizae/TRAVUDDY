@@ -8,7 +8,7 @@ interface TourData {
 
 export const DataTour: TourData[] = [
     {
-        img_src: "/images/pics/img-course_1.svg",
+        img_src: "/images/pics/img-Course_1.svg",
         img_alt: "Sunset Picnic & Paw-tography",
         location: "Korea, Seoul",
         title: "Sunset Picnic & Paw-tography in Seoul Forest Park",
@@ -22,7 +22,7 @@ export const DataTour: TourData[] = [
         rating: 4.6,
     },
     {
-        img_src: "/images/pics/img-course_2.svg",
+        img_src: "/images/pics/img-Course_2.svg",
         img_alt: "[Pet-Friendly] Gallery & Local Cafe Walk",
         location: "Korea, Seoul",
         title: "[Pet-Friendly] Gallery & Local Cafe Walk",
