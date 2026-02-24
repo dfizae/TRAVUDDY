@@ -1,18 +1,26 @@
 export interface CourseData {
-    img_src: string;  // ✅ undefined 제거 (필수값)
-    img_alt: string;  // ✅ undefined 제거 (필수값)
+    img_src: string; 
+    img_alt: string;  
     title: string;
+    title2?: string;
     location: string;
     time: string;
     cost: string;
+    profile_img_src?: string;
+    profile_img_alt?: string;
+    map_location?: string;
 }
 
 export const DataCourse: CourseData[] = [
     {
         img_src: '/images/pics/img-Course_1.svg',  // 반드시 값 제공
         img_alt: 'Course 1',
-        title: 'Sunset Picnic & Paw-tography in Seoul Forest Park',
-        location: 'Korea, Seoul 273 Ttukseom-ro, Seongdong',
+        profile_img_src: '/images/pics/RecommendedLukas.svg',
+        profile_img_alt: 'Guide Profile 1',
+        title: 'Sunset Picnic & Paw-tography',
+        title2: 'Sunset Picnic & Paw-tography in Seoul Forest Park',
+        location: 'Korea, Seoul',
+        map_location: 'Korea, Seoul 273 Ttukseom-ro, Seongdong',
         time: '3 hours',
         cost: '$150'
     },

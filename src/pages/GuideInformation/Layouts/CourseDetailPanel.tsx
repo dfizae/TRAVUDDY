@@ -1,15 +1,24 @@
+import { useState } from "react";
+import { DataReview } from "./data/DataReview";
+
 interface CourseDetailPanelProps {
     course: {
         img_src: string;
         img_alt: string;
         title: string;
-        location?: string;
-        cost?: string;
+        title2?: string;
+        map_location?: string;
+        profile_img_src?: string;
+        profile_img_alt?: string;
     };
     onClose: () => void;
 }
 
 export default function CourseDetailPanel({ course, onClose }: CourseDetailPanelProps) {
+
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [showAllReviews, setShowAllReviews] = useState(false);
+
     return (
         <div className="fixed inset-0 z-50 flex">
             {/* 배경 오버레이 */}
@@ -20,8 +29,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
             {/* 슬라이드 패널 */}
             <div className="w-full sm:w-96 bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
-                {/* 상단 닫기 버튼 */}
-                <div className="flex items-center justify-between p-4 sticky top-0 bg-white">
+                    <div className="flex items-center justify-between p-4 sticky top-0 bg-white">
                     <button
                         onClick={onClose}
                         className="text-2xl"
@@ -45,43 +53,60 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                 {/* 호스트 정보 */}
                 <div className="p-4">
                     <div className="flex items-center gap-3 mb-3">
-                        <div className="w-10 h-10 bg-gray-300 rounded-full" />
-                        <span className="font-semibold">Host by Lukas</span>
+                        {course.profile_img_src && (
+                            <img
+                                src={course.profile_img_src}
+                                alt={course.profile_img_alt || "Host Profile"}
+                                className="w-8 h-8 rounded-full"
+                            />
+                        )}
+                        <span className="font-semibold text-xs">Host by Lukas</span>
                     </div>
                 </div>
 
                 {/* 제목 */}
                 <div className="p-4 ">
-                    <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
+                    <h2 className="text-xl font-semibold mb-2">{course.title2}</h2>
                 </div>
 
                 {/* Overview */}
-                <div className="p-4 border-b">
-                    <p className="text-sm text-gray-600 mb-2">
-                        [Overview] <br />
-                        "Escape the city buzz and step into the green oasis of Seoul Forest. This isn't just a walk; it’s a professionally curated picnic experience designed for you and your beloved pet. As the sun begins to set, the park transforms into a golden-hued studio, providing the perfect lighting for your 'Paw-tography' session."
-                        <br />
-                        <br />
-                        [What We’ll Do]
-                        <br />
-                        Meet & Greet: We’ll meet at Seoul Forest Station (Line 2) and head to our secret picnic spot—a quiet, grassy area away from the crowds.
-                        <br />
-                        Picnic Time: I’ll set up a premium picnic set (mat, wooden table, and snacks). You can relax with your pet while I prepare the camera gear.
-                        The Session: For 60 minutes, I’ll capture natural, candid moments of you and your dog. No awkward posing—just pure joy and connection.
-                        <br />
-                        Local Walk: After the shoot, I’ll show you the best dog-friendly paths and hidden spots in the park that only locals know.
-                        <br />
-                        [What’s Included]
-                        <br />
-                        ✅ Private SUV Pickup/Drop-off (Within 5km of Seoul Forest)
-                        <br />
-                        ✅ Full Picnic Set Rental (Mat, Table, Basket, Decorations)
-                        <br />
-                        ✅ 20+ High-Resolution Edited Photos (Sent via link within 3 days)
-                        <br />
-                        ✅ Complimentary Pet Treats & Refreshments
-                    </p>
-                    <button className="text-[#D95500] font-semibold text-sm">view all </button>
+                <div className="mb-2 px-4">
+                    <div className="relative">
+                        <p
+                            className="text-sm text-[#403C3A] overflow-hidden transition-[max-height] duration-300"
+                            style={{
+                                lineHeight: "1.4",
+                                maxHeight: isExpanded ? "1000px" : "4em",
+                            }}
+                        >
+                            [Overview]<br/>
+                            "Escape the city buzz and step into the green oasis of Seoul Forest. This isn't just a walk; it’s a professionally curated picnic experience designed for you and your beloved pet. As the sun begins to set, the park transforms into a golden-hued studio, providing the perfect lighting for your 'Paw-tography' session."
+                            <br/>
+                            <br/>
+                            [What We’ll Do]<br/>
+                            Meet & Greet: We’ll meet at Seoul Forest Station (Line 2) and head to our secret picnic spot—a quiet, grassy area away from the crowds.
+                            Picnic Time: I’ll set up a premium picnic set (mat, wooden table, and snacks). You can relax with your pet while I prepare the camera gear.
+                            The Session: For 60 minutes, I’ll capture natural, candid moments of you and your dog. No awkward posing—just pure joy and connection.
+                            Local Walk: After the shoot, I’ll show you the best dog-friendly paths and hidden spots in the park that only locals know.
+                            <br/>
+                            [What’s Included]<br/>
+                            ✅ Private SUV Pickup/Drop-off (Within 5km of Seoul Forest)
+                            <br/>✅ Full Picnic Set Rental (Mat, Table, Basket, Decorations)
+                            <br/>✅ 20+ High-Resolution Edited Photos (Sent via link within 3 days)
+                            <br/>✅ Complimentary Pet Treats & Refreshments
+                        </p>
+                        {!isExpanded && (
+                            <div className="pointer-events-none absolute bottom-0 left-0 h-6 w-full bg-linear-to-t from-white to-transparent" />
+                        )}
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => setIsExpanded((prev) => !prev)}
+                        className="mt-2 flex items-center gap-1 text-sm font-semibold text-[#D95500] cursor-pointer"
+                    >
+                        {isExpanded ? "close all" : "view all"}
+                        <span className="text-xs">{isExpanded ? "▲" : "▼"}</span>
+                    </button>
                 </div>
 
                 {/* 위치 정보 */}
@@ -93,7 +118,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </svg>
 
                     <div>
-                        <p className="text-sm text-[#938F8D]">Korea, Seoul 273 Ttukseom-ro,<br /> Seongdong</p>
+                        <p className="text-sm text-[#938F8D]">{course.map_location}</p>
                     </div>
                 </div>
 
@@ -172,43 +197,214 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
                         <div className="flex items-center gap-2 mt-2">
                             <span className="text-[#D95500] font-semibold text-xs">4.8</span>
-                            <span className="text-[#D95500]  font-semibold text-xs">(3 Reviews)</span>
+                            <span className="text-[#D95500] font-semibold text-xs">(3 Reviews)</span>
                         </div>
                     </div>
 
                 </div>
                 {/* 리뷰 섹션 */}
-                <div className="p-4 border-b bg-white rounded-lg m-4">
-                    <div className="flex items-start gap-3 mb-4">
-                        <div className="w-10 h-10 bg-gray-300 rounded-full" />
-                        <div className="flex-1">
-                            <div className="flex justify-between items-start">
-                                <div>
-                                    <h4 className="font-semibold">Yerim Lee</h4>
-                                    <p className="text-xs text-gray-500">Korea</p>
+                <div className="bg-white rounded-lg m-4 overflow-hidden">
+                    {/* 첫 번째 리뷰 (항상 보이는 부분) */}
+                    <div className="p-4">
+                        {DataReview[1] && (
+                            <>
+                                <div className="flex items-start gap-3 mb-4">
+                                    <img
+                                        src={DataReview[1].profileImgSrc}
+                                        alt={DataReview[1].profileImgAlt}
+                                        className="w-10 h-10 rounded-full object-cover"
+                                    />
+                                    <div className="flex-1">
+                                        <div className="flex justify-between items-start">
+                                            <div>
+                                                <h4 className="font-semibold">{DataReview[1].profileName}</h4>
+                                                <p className="text-xs text-gray-500">{DataReview[1].profileCountry}</p>
+                                            </div>
+                                            <button className="text-gray-400">⋮</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button className="text-gray-400">⋮</button>
-                            </div>
-                        </div>
+                                {DataReview[1].coverImgSrc && (
+                                    <div className="bg-gray-100 rounded-lg h-32 mb-3 overflow-hidden">
+                                        <img
+                                            src={DataReview[1].coverImgSrc}
+                                            alt={DataReview[1].coverImgAlt}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                )}
+                                <div className="flex items-center justify-between mb-2">
+                                    <span className="flex justify-between gap-2">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M5.23047 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M8 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M10.7695 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M13.0772 3.38446H2.9231C2.41329 3.38446 2 3.79775 2 4.30756V13.077C2 13.5868 2.41329 14.0001 2.9231 14.0001H13.0772C13.587 14.0001 14.0003 13.5868 14.0003 13.077V4.30756C14.0003 3.79775 13.587 3.38446 13.0772 3.38446Z" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <span className="text-xs text-gray-500">{DataReview[1].timeText}</span>
+                                    </span>
+                                    <div className="flex items-center gap-2 px-3 py-1 border-2 border-[#D95500] rounded-full bg-white">
+                                        <span className="text-[#D95500] font-semibold text-xs">{DataReview[1].rating.toFixed(1)}</span>
+                                        <span className="text-[#D95500] font-semibold text-xs">/5</span>
+                                    </div>
+                                </div>
+                                <h4 className="font-semibold text-sm mb-2">{DataReview[1].title}</h4>
+                                <p className="text-xs text-gray-600 mb-3">
+                                    &quot;{DataReview[1].body}&quot;
+                                </p>
+                                <button
+                                    type="button"
+                                    className="flex items-center gap-1.5 rounded-full border-2 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
+                                >
+                                    <svg
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 16 16"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
+                                            stroke="currentColor"
+                                            strokeLinejoin="round"
+                                        />
+                                        <path
+                                            d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
+                                            stroke="currentColor"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                    Helpful ({DataReview[1].helpfulCount})
+                                </button>
+                            </>
+                        )}
                     </div>
-                    <div className="bg-gray-100 rounded-lg h-32 mb-3" />
-                    <div className="flex items-center justify-between mb-2">
-                        <span className="flex justify-between gap-2">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.23047 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M8 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M10.7695 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M13.0772 3.38446H2.9231C2.41329 3.38446 2 3.79775 2 4.30756V13.077C2 13.5868 2.41329 14.0001 2.9231 14.0001H13.0772C13.587 14.0001 14.0003 13.5868 14.0003 13.077V4.30756C14.0003 3.79775 13.587 3.38446 13.0772 3.38446Z" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                            <span className="text-xs text-gray-500">09-Jan-2026</span>
-                        </span>
-                        <span className="text-[#D95500] font-semibold">★ 5.0 /5</span>
+
+                    {/* 펼칠 수 있는 리뷰 목록 */}
+                    <div
+                        style={{
+                            maxHeight: showAllReviews ? '2000px' : '0px',
+                            transition: 'max-height 0.4s ease-in-out',
+                            overflow: 'hidden',
+                        }}
+                    >
+                        <ul className="px-4 pb-4 space-y-3">
+                            {DataReview.slice(2).map((review, index) => (
+                                <li key={index} className="bg-white rounded-lg overflow-hidden">
+                                    <div className="p-3 bg-white rounded-lg border border-gray-100 shadow-sm">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <div className="flex items-center gap-2">
+                                                <img
+                                                    src={review.profileImgSrc}
+                                                    alt={review.profileImgAlt}
+                                                    className="h-8 w-8 rounded-full object-cover"
+                                                />
+                                                <div className="flex flex-col">
+                                                    <span className="text-xs font-semibold text-[#1A1A1A]">
+                                                        {review.profileName}
+                                                    </span>
+                                                    <span className="text-xs text-[#938F8D]">
+                                                        {review.profileCountry}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                className="text-[#B8B3B0]"
+                                                aria-label="More options"
+                                            >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 20 20"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <circle cx="10" cy="4" r="1.5" fill="currentColor" />
+                                                <circle cx="10" cy="10" r="1.5" fill="currentColor" />
+                                                <circle cx="10" cy="16" r="1.5" fill="currentColor" />
+                                            </svg>
+                                            </button>
+                                        </div>
+
+                                        {review.coverImgSrc && (
+                                            <div className="mb-3 rounded overflow-hidden">
+                                                <img
+                                                    src={review.coverImgSrc}
+                                                    alt={review.coverImgAlt}
+                                                    className="h-32 w-full object-cover"
+                                                />
+                                            </div>
+                                        )}
+
+                                        <div className="flex items-center justify-between mb-2">
+                                            <div className="flex items-center gap-1 text-xs text-[#938F8D]">
+                                                <svg
+                                                    width="14"
+                                                    height="14"
+                                                    viewBox="0 0 16 16"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" />
+                                                    <path d="M4.5 1.5V4" stroke="currentColor" strokeLinecap="round" />
+                                                    <path d="M11.5 1.5V4" stroke="currentColor" strokeLinecap="round" />
+                                                    <path d="M2 6.5H14" stroke="currentColor" strokeLinecap="round" />
+                                                </svg>
+                                                <span className="text-xs">{review.timeText}</span>
+                                            </div>
+                                            <div className="flex items-center gap-2 px-3 py-1 border-2 border-[#D95500] rounded-full bg-white">
+                                                <span className="text-[#D95500] font-semibold text-xs">{review.rating.toFixed(1)}</span>
+                                                <span className="text-[#D95500] font-semibold text-xs">/5</span>
+                                            </div>
+                                        </div>
+
+                                        <h4 className="text-xs font-semibold text-[#1A1A1A] mb-1">
+                                            {review.title}
+                                        </h4>
+                                        <p className="text-xs text-[#403C3A] leading-4 mb-3">
+                                            &quot;{review.body}&quot;
+                                        </p>
+
+                                        <button
+                                            type="button"
+                                            className="flex items-center gap-1.5 rounded-full border-2 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
+                                        >
+                                            <svg
+                                                width="14"
+                                                height="14"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
+                                                    stroke="currentColor"
+                                                    strokeLinejoin="round"
+                                                />
+                                                <path
+                                                    d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
+                                                    stroke="currentColor"
+                                                    strokeLinejoin="round"
+                                                />
+                                            </svg>
+                                            Helpful ({review.helpfulCount})
+                                        </button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                    <h4 className="font-semibold text-sm mb-2">{course.title}</h4>
-                    <p className="text-xs text-gray-600">
-                        "Lukas was incredible! I was worried about my large dog fitting in the car..."
-                    </p>
-                    <button className="text-[#D95500] font-semibold text-xs mt-2">view all ♥</button>
+
+                    {/* view all / view less 버튼 */}
+                    <div className="px-4 pb-4">
+                        <button 
+                            onClick={() => setShowAllReviews(!showAllReviews)}
+                            className="text-[#D95500] font-semibold text-xs"
+                        >
+                            {showAllReviews ? "view less ♥" : "view all ♥"}
+                        </button>
+                    </div>
                 </div>
 
                 {/* 버튼 섹션 */}
