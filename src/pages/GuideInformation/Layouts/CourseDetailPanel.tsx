@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DataReview } from "./data/DataReview";
+import GnbSecond from "../../../components/GnbSecond";
 
 interface CourseDetailPanelProps {
     course: {
@@ -29,18 +30,12 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
             {/* 슬라이드 패널 */}
             <div className="w-full sm:w-96 bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
-                <div className="flex items-center justify-between p-4 sticky top-0 bg-white">
-                    <button
-                        onClick={onClose}
-                        className="text-2xl"
-                    >
-                        ←
-                    </button>
-                    <button className="text-2xl">⋮</button>
+                <div className="fixed top-0 z-1000">
+                    <GnbSecond />
                 </div>
 
                 {/* 이미지 */}
-                <div className="relative">
+                <div className="relative z-10">
                     <img
                         src={course.img_src}
                         alt={course.img_alt}
@@ -249,7 +244,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                         </svg>
                                         <span className="text-xs text-gray-500">{DataReview[1].timeText}</span>
                                     </span>
-                                    <div className="flex items-center gap-1 px-1.5 py-0.5 border-1 border-[#D95500] rounded-full bg-white">
+                                    <div className="flex items-center gap-1 px-1.5 py-0.5 border border-[#D95500] rounded-full bg-white">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M6.60713 0.299212C6.73079 -0.099738 7.26921 -0.0997367 7.39287 0.299213L8.76216 4.71676C8.81746 4.89518 8.97607 5.01597 9.15503 5.01597H13.5861C13.9863 5.01597 14.1527 5.55276 13.8289 5.79932L10.2441 8.52952C10.0993 8.63978 10.0387 8.83524 10.094 9.01365L11.4633 13.4312C11.587 13.8301 11.1514 14.1619 10.8276 13.9153L7.24281 11.1851C7.09803 11.0749 6.90197 11.0749 6.75719 11.1851L3.17237 13.9153C2.84862 14.1619 2.41302 13.8301 2.53668 13.4312L3.90596 9.01365C3.96127 8.83524 3.90068 8.63978 3.7559 8.52952L0.171074 5.79932C-0.152672 5.55276 0.0137128 5.01597 0.413885 5.01597H4.84497C5.02393 5.01597 5.18254 4.89518 5.23784 4.71676L6.60713 0.299212Z" fill="#F06500" />
                                         </svg>
