@@ -18,7 +18,7 @@ export const DataCourse: CourseData[] = [
         profile_img_src: '/images/pics/RecommendedLukas.svg',
         profile_img_alt: 'Guide Profile 1',
         title: 'Sunset Picnic & Paw-tography',
-        title2: 'Sunset Picnic & Paw-tography in Seoul Forest Park',
+        title2: 'Sunset Picnic & Paw-tography \n in Seoul Forest Park',
         location: 'Korea, Seoul',
         map_location: 'Korea, Seoul 273 Ttukseom-ro, Seongdong',
         time: '3 hours',

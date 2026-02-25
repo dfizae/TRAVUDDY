@@ -51,7 +51,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
 
                 {/* 호스트 정보 */}
-                <div className="p-4">
+                <div className="pl-4 pt-5">
                     <div className="flex items-center gap-3 mb-3">
                         {course.profile_img_src && (
                             <img
@@ -65,12 +65,12 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                 </div>
 
                 {/* 제목 */}
-                <div className="p-4 ">
-                    <h2 className="text-xl font-semibold mb-2">{course.title2}</h2>
+                <div className="px-4">
+                    <h2 className="text-base font-semibold mb-2">{course.title2}</h2>
                 </div>
 
                 {/* Overview */}
-                <div className="mb-2 px-4">
+                <div className="mb-2 px-4 mt-5">
                     <div className="relative">
                         <p
                             className="text-sm text-[#403C3A] overflow-hidden transition-[max-height] duration-300"
@@ -102,15 +102,15 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     <button
                         type="button"
                         onClick={() => setIsExpanded((prev) => !prev)}
-                        className="mt-2 flex items-center gap-1 text-sm font-semibold text-[#D95500] cursor-pointer"
+                        className="mt-2 mb-6 flex items-center gap-1 text-sm font-semibold text-[#D95500] cursor-pointer"
                     >
                         {isExpanded ? "close all" : "view all"}
                         <span className="text-xs">{isExpanded ? "▲" : "▼"}</span>
                     </button>
-                </div>
+                </div>             
 
                 {/* 위치 정보 */}
-                <div className="p-4 flex items-start gap-3 bg-white rounded-lg m-2">
+                <div className="p-4 flex items-start gap-3 bg-white rounded-xl mx-4 my-2.5">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.0718 5.64286C13.0718 9.07143 7.92899 13.0714 7.92899 13.0714C7.92899 13.0714 2.78613 9.07143 2.78613 5.64286C2.78613 2.84171 5.12785 0.5 7.92899 0.5C10.7301 0.5 13.0718 2.84171 13.0718 5.64286Z" stroke="#4A4A4A" stroke-linecap="round" stroke-linejoin="round" />
                         <path d="M7.92815 7.35728C8.87493 7.35728 9.64244 6.58977 9.64244 5.643C9.64244 4.69622 8.87493 3.92871 7.92815 3.92871C6.98138 3.92871 6.21387 4.69622 6.21387 5.643C6.21387 6.58977 6.98138 7.35728 7.92815 7.35728Z" stroke="#4A4A4A" stroke-linecap="round" stroke-linejoin="round" />
@@ -122,8 +122,10 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </div>
                 </div>
 
+                <hr className="border-0 border-t border-[#E6E2DF] mx-4" />
+
                 {/* 코스 정보 */}
-                <div className="flex flex-col gap-4 justify-center py-3.5 border-b border-t">
+                <div className="flex flex-col gap-4 justify-center py-3.5">
                     <p className="flex gap-4 pl-4">
                         <img src="/images/icons/ico-car.svg" alt="차량" />
                         <span className="font-regular text-sm">Private SUV (Up to 6)</span>
@@ -137,6 +139,9 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                         <span className="font-regular text-sm">Complimentary Pro-Snapshots</span>
                     </p>
                 </div>
+
+                <hr className="border-0 border-t border-[#E6E2DF] mx-4" />
+
                 {/* 평점 */}
                 <div className="px-33 pt-5 flex items-center justify-center">
                     <div className="">
@@ -234,7 +239,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                         />
                                     </div>
                                 )}
-                                <div className="flex items-center justify-between mt-5 mb-3">
+                                <div className="flex items-center justify-between mb-3">
                                     <span className="flex justify-between gap-2">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.23047 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
@@ -256,10 +261,10 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                 <p className="text-xs text-gray-600 mb-3">
                                     &quot;{DataReview[1].body}&quot;
                                 </p>
-                                <div className="flex items-center justify-between">
+                                <div className="flex items-center justify-between mt-5">
                                     <button
                                         type="button"
-                                        className="flex items-center gap-1.5 rounded-full border-1 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
+                                        className="flex items-center gap-1.5 rounded-full border border-[#D95500] px-3 py-2.5 text-xs font-semibold text-[#D95500]"
                                     >
                                         <svg
                                             width="14"
@@ -362,7 +367,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                                 </svg>
                                                 <span className="text-xs">{review.timeText}</span>
                                             </div>
-                                            <div className="flex items-center justify-around gap-1 px-1.5 py-0.5 border-1 border-[#D95500] rounded-full bg-white">
+                                            <div className="flex items-center justify-around gap-1 px-1.5 py-0.5 border border-[#D95500] rounded-full bg-white">
                                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M6.60713 0.299212C6.73079 -0.099738 7.26921 -0.0997367 7.39287 0.299213L8.76216 4.71676C8.81746 4.89518 8.97607 5.01597 9.15503 5.01597H13.5861C13.9863 5.01597 14.1527 5.55276 13.8289 5.79932L10.2441 8.52952C10.0993 8.63978 10.0387 8.83524 10.094 9.01365L11.4633 13.4312C11.587 13.8301 11.1514 14.1619 10.8276 13.9153L7.24281 11.1851C7.09803 11.0749 6.90197 11.0749 6.75719 11.1851L3.17237 13.9153C2.84862 14.1619 2.41302 13.8301 2.53668 13.4312L3.90596 9.01365C3.96127 8.83524 3.90068 8.63978 3.7559 8.52952L0.171074 5.79932C-0.152672 5.55276 0.0137128 5.01597 0.413885 5.01597H4.84497C5.02393 5.01597 5.18254 4.89518 5.23784 4.71676L6.60713 0.299212Z" fill="#F06500" />
                                                 </svg>
@@ -371,37 +376,40 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                             </div>
                                         </div>
 
-                                        <h4 className="text-xs font-semibold text-[#1A1A1A] mb-1">
+                                        <h4 className="text-base font-semibold text-[#1A1A1A] mb-2">
                                             {review.title}
                                         </h4>
-                                        <p className="text-xs text-[#403C3A] leading-4 mb-3">
+                                        <p className="text-sm text-[#403C3A] leading-4 mb-3">
                                             &quot;{review.body}&quot;
                                         </p>
 
-                                        <button
-                                            type="button"
-                                            className="flex items-center gap-2.5 rounded-full border border-[#D95500] px-3 py-2.5 text-xs font-semibold text-[#D95500]"
-                                        >
-                                            <svg
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 16 16"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
+                                        <div className="flex items-center justify-between mt-5">
+                                            <button
+                                                type="button"
+                                                className="flex items-center gap-2.5 rounded-full border border-[#D95500] px-3 py-2.5 text-xs font-semibold text-[#D95500]"
                                             >
-                                                <path
-                                                    d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
-                                                    stroke="currentColor"
-                                                    strokeLinejoin="round"
-                                                />
-                                                <path
-                                                    d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
-                                                    stroke="currentColor"
-                                                    strokeLinejoin="round"
-                                                />
-                                            </svg>
-                                            Helpful ({review.helpfulCount})
-                                        </button>
+                                                <svg
+                                                    width="14"
+                                                    height="14"
+                                                    viewBox="0 0 16 16"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <path
+                                                        d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
+                                                        stroke="currentColor"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                    <path
+                                                        d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
+                                                        stroke="currentColor"
+                                                        strokeLinejoin="round"
+                                                    />
+                                                </svg>
+                                                Helpful ({review.helpfulCount})
+                                            </button>
+                                            <span className="text-xs text-[#938F8D]">Report</span>
+                                        </div>
                                     </div>
                                 </li>
                             ))}
