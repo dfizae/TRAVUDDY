@@ -29,7 +29,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
             {/* 슬라이드 패널 */}
             <div className="w-full sm:w-96 bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
-                    <div className="flex items-center justify-between p-4 sticky top-0 bg-white">
+                <div className="flex items-center justify-between p-4 sticky top-0 bg-white">
                     <button
                         onClick={onClose}
                         className="text-2xl"
@@ -79,21 +79,21 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                 maxHeight: isExpanded ? "1000px" : "4em",
                             }}
                         >
-                            [Overview]<br/>
+                            [Overview]<br />
                             "Escape the city buzz and step into the green oasis of Seoul Forest. This isn't just a walk; it’s a professionally curated picnic experience designed for you and your beloved pet. As the sun begins to set, the park transforms into a golden-hued studio, providing the perfect lighting for your 'Paw-tography' session."
-                            <br/>
-                            <br/>
-                            [What We’ll Do]<br/>
+                            <br />
+                            <br />
+                            [What We’ll Do]<br />
                             Meet & Greet: We’ll meet at Seoul Forest Station (Line 2) and head to our secret picnic spot—a quiet, grassy area away from the crowds.
                             Picnic Time: I’ll set up a premium picnic set (mat, wooden table, and snacks). You can relax with your pet while I prepare the camera gear.
                             The Session: For 60 minutes, I’ll capture natural, candid moments of you and your dog. No awkward posing—just pure joy and connection.
                             Local Walk: After the shoot, I’ll show you the best dog-friendly paths and hidden spots in the park that only locals know.
-                            <br/>
-                            [What’s Included]<br/>
+                            <br />
+                            [What’s Included]<br />
                             ✅ Private SUV Pickup/Drop-off (Within 5km of Seoul Forest)
-                            <br/>✅ Full Picnic Set Rental (Mat, Table, Basket, Decorations)
-                            <br/>✅ 20+ High-Resolution Edited Photos (Sent via link within 3 days)
-                            <br/>✅ Complimentary Pet Treats & Refreshments
+                            <br />✅ Full Picnic Set Rental (Mat, Table, Basket, Decorations)
+                            <br />✅ 20+ High-Resolution Edited Photos (Sent via link within 3 days)
+                            <br />✅ Complimentary Pet Treats & Refreshments
                         </p>
                         {!isExpanded && (
                             <div className="pointer-events-none absolute bottom-0 left-0 h-6 w-full bg-linear-to-t from-white to-transparent" />
@@ -138,7 +138,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </p>
                 </div>
                 {/* 평점 */}
-                <div className="p-4 flex items-center justify-center">
+                <div className="px-33 pt-5 flex items-center justify-center">
                     <div className="">
                         <svg width="98" height="76" viewBox="0 0 98 76" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_700_2467)">
@@ -203,11 +203,12 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
                 </div>
                 {/* 리뷰 섹션 */}
-                <div className="bg-white rounded-lg m-4 overflow-hidden">
-                    {/* 첫 번째 리뷰 (항상 보이는 부분) */}
-                    <div className="p-4">
-                        {DataReview[1] && (
-                            <>
+
+                {/* 첫 번째 리뷰 (항상 보이는 부분) */}
+                <div className="p-4">
+                    {DataReview[1] && (
+                        <>
+                            <div className="bg-white rounded-lg p-4">
                                 <div className="flex items-start gap-3 mb-4">
                                     <img
                                         src={DataReview[1].profileImgSrc}
@@ -233,7 +234,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                         />
                                     </div>
                                 )}
-                                <div className="flex items-center justify-between mb-2">
+                                <div className="flex items-center justify-between mt-5 mb-3">
                                     <span className="flex justify-between gap-2">
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.23047 4.76911V1.99982" stroke="#938F8D" stroke-linecap="round" stroke-linejoin="round" />
@@ -243,44 +244,52 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                         </svg>
                                         <span className="text-xs text-gray-500">{DataReview[1].timeText}</span>
                                     </span>
-                                    <div className="flex items-center gap-2 px-3 py-1 border-2 border-[#D95500] rounded-full bg-white">
+                                    <div className="flex items-center gap-1 px-1.5 py-0.5 border-1 border-[#D95500] rounded-full bg-white">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.60713 0.299212C6.73079 -0.099738 7.26921 -0.0997367 7.39287 0.299213L8.76216 4.71676C8.81746 4.89518 8.97607 5.01597 9.15503 5.01597H13.5861C13.9863 5.01597 14.1527 5.55276 13.8289 5.79932L10.2441 8.52952C10.0993 8.63978 10.0387 8.83524 10.094 9.01365L11.4633 13.4312C11.587 13.8301 11.1514 14.1619 10.8276 13.9153L7.24281 11.1851C7.09803 11.0749 6.90197 11.0749 6.75719 11.1851L3.17237 13.9153C2.84862 14.1619 2.41302 13.8301 2.53668 13.4312L3.90596 9.01365C3.96127 8.83524 3.90068 8.63978 3.7559 8.52952L0.171074 5.79932C-0.152672 5.55276 0.0137128 5.01597 0.413885 5.01597H4.84497C5.02393 5.01597 5.18254 4.89518 5.23784 4.71676L6.60713 0.299212Z" fill="#F06500" />
+                                        </svg>
                                         <span className="text-[#D95500] font-semibold text-xs">{DataReview[1].rating.toFixed(1)}</span>
-                                        <span className="text-[#D95500] font-semibold text-xs">/5</span>
+                                        <span className="text-[#938F8D] font-semibold text-xs">/5</span>
                                     </div>
                                 </div>
                                 <h4 className="font-semibold text-sm mb-2">{DataReview[1].title}</h4>
                                 <p className="text-xs text-gray-600 mb-3">
                                     &quot;{DataReview[1].body}&quot;
                                 </p>
-                                <button
-                                    type="button"
-                                    className="flex items-center gap-1.5 rounded-full border-2 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
-                                >
-                                    <svg
-                                        width="14"
-                                        height="14"
-                                        viewBox="0 0 16 16"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
+                                <div className="flex items-center justify-between">
+                                    <button
+                                        type="button"
+                                        className="flex items-center gap-1.5 rounded-full border-1 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
                                     >
-                                        <path
-                                            d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
-                                            stroke="currentColor"
-                                            strokeLinejoin="round"
-                                        />
-                                        <path
-                                            d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
-                                            stroke="currentColor"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                    Helpful ({DataReview[1].helpfulCount})
-                                </button>
-                            </>
-                        )}
-                    </div>
+                                        <svg
+                                            width="14"
+                                            height="14"
+                                            viewBox="0 0 16 16"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M6.5 7V3.5C6.5 2.67 7.17 2 8 2l.5 0c.55 0 1 .45 1 1v4h2.5c.83 0 1.5.67 1.5 1.5 0 .16-.02.32-.07.47l-1.4 4.2c-.2.6-.77.83-1.33.83H5.5c-.55 0-1-.45-1-1V7h2z"
+                                                stroke="currentColor"
+                                                strokeLinejoin="round"
+                                            />
+                                            <path
+                                                d="M3.5 7H2.5C2.22 7 2 7.22 2 7.5V13c0 .28.22.5.5.5h1C3.78 13.5 4 13.28 4 13V7.5C4 7.22 3.78 7 3.5 7z"
+                                                stroke="currentColor"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        Helpful ({DataReview[1].helpfulCount})
+                                    </button>
+                                    <span className="text-xs text-[#938F8D]">Report</span>
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </div>
 
-                    {/* 펼칠 수 있는 리뷰 목록 */}
+                {/* 펼칠 수 있는 리뷰 목록 */}
+                <div className="bg-[#FAF9F8]  rounded-lg m-4 overflow-hidden">
                     <div
                         style={{
                             maxHeight: showAllReviews ? '2000px' : '0px',
@@ -288,9 +297,9 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                             overflow: 'hidden',
                         }}
                     >
-                        <ul className="px-4 pb-4 space-y-3">
+                        <ul className="space-y-3">
                             {DataReview.slice(2).map((review, index) => (
-                                <li key={index} className="bg-white rounded-lg overflow-hidden">
+                                <li key={index} className="bg-[#FAF9F8] rounded-lg overflow-hidden">
                                     <div className="p-3 bg-white rounded-lg border border-gray-100 shadow-sm">
                                         <div className="flex items-center justify-between mb-3">
                                             <div className="flex items-center gap-2">
@@ -313,17 +322,17 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                                 className="text-[#B8B3B0]"
                                                 aria-label="More options"
                                             >
-                                            <svg
-                                                width="16"
-                                                height="16"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <circle cx="10" cy="4" r="1.5" fill="currentColor" />
-                                                <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-                                                <circle cx="10" cy="16" r="1.5" fill="currentColor" />
-                                            </svg>
+                                                <svg
+                                                    width="16"
+                                                    height="16"
+                                                    viewBox="0 0 20 20"
+                                                    fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                    <circle cx="10" cy="4" r="1.5" fill="currentColor" />
+                                                    <circle cx="10" cy="10" r="1.5" fill="currentColor" />
+                                                    <circle cx="10" cy="16" r="1.5" fill="currentColor" />
+                                                </svg>
                                             </button>
                                         </div>
 
@@ -353,9 +362,12 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                                 </svg>
                                                 <span className="text-xs">{review.timeText}</span>
                                             </div>
-                                            <div className="flex items-center gap-2 px-3 py-1 border-2 border-[#D95500] rounded-full bg-white">
+                                            <div className="flex items-center justify-around gap-1 px-1.5 py-0.5 border-1 border-[#D95500] rounded-full bg-white">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6.60713 0.299212C6.73079 -0.099738 7.26921 -0.0997367 7.39287 0.299213L8.76216 4.71676C8.81746 4.89518 8.97607 5.01597 9.15503 5.01597H13.5861C13.9863 5.01597 14.1527 5.55276 13.8289 5.79932L10.2441 8.52952C10.0993 8.63978 10.0387 8.83524 10.094 9.01365L11.4633 13.4312C11.587 13.8301 11.1514 14.1619 10.8276 13.9153L7.24281 11.1851C7.09803 11.0749 6.90197 11.0749 6.75719 11.1851L3.17237 13.9153C2.84862 14.1619 2.41302 13.8301 2.53668 13.4312L3.90596 9.01365C3.96127 8.83524 3.90068 8.63978 3.7559 8.52952L0.171074 5.79932C-0.152672 5.55276 0.0137128 5.01597 0.413885 5.01597H4.84497C5.02393 5.01597 5.18254 4.89518 5.23784 4.71676L6.60713 0.299212Z" fill="#F06500" />
+                                                </svg>
                                                 <span className="text-[#D95500] font-semibold text-xs">{review.rating.toFixed(1)}</span>
-                                                <span className="text-[#D95500] font-semibold text-xs">/5</span>
+                                                <span className="text-[#938F8D] font-semibold text-xs">/5</span>
                                             </div>
                                         </div>
 
@@ -368,7 +380,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
                                         <button
                                             type="button"
-                                            className="flex items-center gap-1.5 rounded-full border-2 border-[#D95500] px-3 py-1.5 text-xs font-semibold text-[#D95500]"
+                                            className="flex items-center gap-2.5 rounded-full border border-[#D95500] px-3 py-2.5 text-xs font-semibold text-[#D95500]"
                                         >
                                             <svg
                                                 width="14"
@@ -397,22 +409,22 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </div>
 
                     {/* view all / view less 버튼 */}
-                    <div className="px-4 pb-4">
-                        <button 
+                    <div className="px-4 pb-4 pt-6">
+                        <button
                             onClick={() => setShowAllReviews(!showAllReviews)}
                             className="text-[#D95500] font-semibold text-xs"
                         >
-                            {showAllReviews ? "view less ♥" : "view all ♥"}
+                            {showAllReviews ? "view less ▲" : "view all ▼"}
                         </button>
                     </div>
                 </div>
 
                 {/* 버튼 섹션 */}
-                <div className="p-4 flex gap-3 sticky bottom-0 bg-white border-t">
+                <div className="px-4 pb-12.5 flex gap-3 sticky bottom-0 bg-[#FAF9F8]">
                     {/* <button className="flex-1 border-2 border-[#D95500] text-[#D95500] font-semibold py-3 rounded-lg">
                         Add Course
                     </button> */}
-                    <button className="flex-1 bg-[#D95500] text-white font-semibold py-3 rounded-lg">
+                    <button className="flex-1 bg-[#F66700] hover:bg-[#D95500] text-white font-semibold py-3 rounded-2xl transition-all duration-300 ease-in-out">
                         Next
                     </button>
                 </div>
