@@ -1,9 +1,10 @@
-export default function GnbSecond() {
+export default function GnbSecond({ onClose }: { onClose: () => void }) {
     return (
         <nav className="flex items-center w-90 justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.4)] transition-all duration-300 hover:bg-[hsla(25,100%,90%,1)]">
             <button 
                 className="cursor-pointer opacity-60 rounded-full p-2 transition-all duration-300 bg-[#FFFFFF] hover:opacity-100"
                 aria-label="Go back"
+                onClick={onClose}
             >
                 <svg 
                     width="24" 

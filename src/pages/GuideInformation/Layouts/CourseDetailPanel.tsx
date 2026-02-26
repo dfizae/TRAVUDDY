@@ -31,7 +31,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
             {/* 슬라이드 패널 */}
             <div className="w-full sm:w-96 bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
                 <div className="fixed top-0 z-1000">
-                    <GnbSecond />
+                    <GnbSecond onClose={onClose} />
                 </div>
 
                 {/* 이미지 */}
