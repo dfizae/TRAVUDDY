@@ -46,7 +46,9 @@ GLYF/
 │   │   ├── Gnb.tsx : 상단 네비게이션 컴포넌트
 │   │   ├── Footer.tsx : 하단 푸터 컴포넌트
 │   │   ├── GnbSecond.tsx : 상단 네비게이션 컴포넌트 - 2
-│   │
+│   │   └── data/
+│   │       ├── GnbMenuData.ts: Gnb 메뉴 데이터
+│   │       └── index.tsx: Gnb Setting 항목 데이터
 │   │
 │   ├── pages/
 │   │   ├── Main/ : 메인페이지
@@ -95,4 +97,8 @@ GLYF/
 - [x] 가이드페이지 작성 (GuideInformation)
     - [x] CourseLayout 작성
     - [x] ReviewLayout 작성
+    
+- **2026-02-21 ~ 2026-02-**
+- [x] 가이드 상세페이지 작성 (GuideDetailPanel)
+- [x] Gnb 수정 (GnbSecond, 이벤트 설계)
     ...
