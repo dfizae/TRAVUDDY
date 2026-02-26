@@ -1,3 +1,6 @@
+import { GnbMenuData } from './data/GnbMenuData';
+import { GnbSettingData } from './data/GnbSettingData';
+
 export default function Gnb() {
 
 
@@ -55,15 +58,24 @@ export default function Gnb() {
             Hello, User!
           </h1>
           <ul className="flex gap-6 flex-col">
-            <li>
-            </li>  
+            {GnbMenuData.map((item, index) => (
+              <li key={index}>
+                <img src={item.img_src} alt={item.img_alt} />
+                <span>{item.title}</span>
+              </li>
+            ))}
           </ul>
           <hr />
           <h1>
             Setting
           </h1>
           <ul>
-            <li></li>
+            {GnbSettingData.map((item, index) => (
+              <li key={index}>
+                <img src={item.img_src} alt={item.img_alt} />
+                <span>{item.title}</span>
+              </li>
+            ))}
           </ul>
 
           <div className="flex">
