@@ -1,6 +1,20 @@
+import { useState } from "react";
 import { DataTour } from "./data/DataTour";
 
 export default function RecommendedTourSection() {
+    const [tours, setTours] = useState(
+        DataTour.map((tour) => ({ ...tour, isLiked: false }))
+    );
+
+    const toggleLike = (index: number): void => {
+        setTours((prev) =>
+            prev.map((tour, tourIndex) =>
+                tourIndex === index ? { ...tour, isLiked: !tour.isLiked } : tour
+            )
+        );
+    };
+
+    
     return (
         <section className="px-4 py-8">
             <div className="mb-4 flex items-center justify-between">
@@ -11,7 +25,7 @@ export default function RecommendedTourSection() {
             </div>
 
             <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {DataTour.map((tour, index) => (
+                {tours.map((tour, index) => (
                     <div
                         key={index}
                         className={`group overflow-hidden rounded-lg ${index >= 4 ? "lg:col-span-2" : ""
@@ -23,16 +37,25 @@ export default function RecommendedTourSection() {
                                 alt={tour.img_alt}
                                 className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                             />
-                            <button className="absolute top-3 right-3 rounded-full bg-black bg-opacity-40 p-2 transition-all hover:bg-opacity-60">
+                            <button
+                                type="button"
+                                aria-pressed={tour.isLiked}
+                                aria-label={tour.isLiked ? "Unlike tour" : "Like tour"}
+                                onClick={() => toggleLike(index)}
+                                className="absolute top-3 right-3 rounded-full bg-black bg-opacity-40 p-2 transition-all hover:bg-opacity-60"
+                            >
                                 <svg
                                     width="20"
                                     height="20"
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    stroke="white"
+                                    stroke={tour.isLiked ? "#D95500" : "white"}
                                     strokeWidth="2"
                                 >
-                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                        fill={tour.isLiked ? "#D95500" : "none"}
+                                    ></path>
                                 </svg>
                             </button>
                         </div>
