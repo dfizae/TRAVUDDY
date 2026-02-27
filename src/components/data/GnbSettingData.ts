@@ -12,3 +12,5 @@ export const GnbSettingData: GnbSettingItem[] = [
   },
   // 추가 항목들...
 ];
+
+

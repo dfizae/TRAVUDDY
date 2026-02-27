@@ -3,6 +3,7 @@ import InformationSection from "./InformationSection";
 import { useLocation, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "../../components/Footer";
+import GnbSecond from "../../components/GnbSecond";
 
 export default function GuideInformation(){
     const { name, location, star_rate, hashtag_1, hashtag_2, hashtag_3, hashtag_4, hashtag_5, hashtag_6 } = useParams();
@@ -47,6 +48,7 @@ export default function GuideInformation(){
                 className="fixed inset-0 bg-white z-50 overflow-y-auto"
             >
                 <div className="w-full bg-[#FAF9F8]">
+                    <GnbSecond onClose={() => window.history.back()} />
                     <ProfileSection data={data}/>
                     <InformationSection/>
                     <Footer />
