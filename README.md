@@ -98,7 +98,11 @@ GLYF/
     - [x] CourseLayout 작성
     - [x] ReviewLayout 작성
     
-- **2026-02-21 ~ 2026-02-**
+- **2026-02-21 ~ 2026-03-03**
 - [x] 가이드 상세페이지 작성 (GuideDetailPanel)
 - [x] Gnb 수정 (GnbSecond, 이벤트 설계)
+    
+- **2026-03-03 ~ ..**
+- [x] Gnb 메뉴창 작성
+- [x] 검색창 수정
     ...
