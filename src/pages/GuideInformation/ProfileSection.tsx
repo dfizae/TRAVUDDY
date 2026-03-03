@@ -49,7 +49,7 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                             </div>
                         
                             <p className="flex items-center gap-2 text-xs text-[#938F8D]">
-                                <img src="/images/icons/ico-map.svg" alt="위치" className="w-3 h-3"/>
+                                <img src="/images/icons/ico-mapWhite.svg" alt="위치" className="w-3 h-3"/>
                                 {data.location}
                             </p>
                         
