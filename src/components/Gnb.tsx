@@ -5,6 +5,7 @@ import { GnbSettingData } from './data/GnbSettingData';
 export default function Gnb() {
 
   const [isClicked, setIsClicked] = useState(false);
+  const [activeRole, setActiveRole] = useState('traveler');
 
   const handleToggleClick = () => {
         if (!isClicked) {
@@ -63,7 +64,7 @@ export default function Gnb() {
           </button>
         </div>
 
-        <div className={`overflow-hidden transition-all duration-300 ${isClicked ? 'max-h-162' : 'max-h-0'} bg-[hsl(25,100%,95%,1)]`}>
+        <div className={`overflow-hidden transition-all duration-300 ${isClicked ? 'max-h-screen' : 'max-h-0'} bg-[hsl(25,100%,95%,1)]`}>
           <div className="p-6">
             <h1 className="mb-4 font-semibold">
               <img src="/images/pics/img-menuProfile.svg" alt="내 프로필" className="inline mr-2" />
@@ -89,10 +90,29 @@ export default function Gnb() {
                 </li>
               ))}
             </ul>
-
-            <div className="flex gap-2">
-              <button className="px-4 py-2 border rounded">Traveler</button>
-              <button className="px-4 py-2 border rounded">Guide</button>
+            <div className="flex mt-26 mb-32">              
+              <button 
+                onClick={() => setActiveRole('traveler')}
+                className={`p-2.5 border rounded-l-full flex gap-1.5 items-center transition-all duration-300 ${
+                  activeRole === 'traveler' 
+                    ? 'bg-[#D95500] text-white border-[#D95500]' 
+                    : 'bg-transparent text-[#EBE9E6] border-[#EBE9E6] hover:bg-[#D95500] hover:text-white'
+                }`}
+              >
+                {activeRole === 'traveler' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
+                Traveler
+              </button>
+              <button 
+                onClick={() => setActiveRole('guide')}
+                className={`p-2.5 border rounded-r-full flex gap-1.5 items-center transition-all duration-300 ${
+                  activeRole === 'guide' 
+                    ? 'bg-[#D95500] text-white border-[#D95500]' 
+                    : 'bg-transparent text-[#EBE9E6] border-[#EBE9E6] hover:bg-[#D95500] hover:text-white'
+                }`}
+              >
+                {activeRole === 'guide' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
+                Guide
+              </button>
             </div>
           </div>
         </div>
