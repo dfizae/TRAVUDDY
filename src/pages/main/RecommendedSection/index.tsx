@@ -1,5 +1,6 @@
 import { useState } from "react"; // useState 추가
 import { Link } from "react-router-dom";
+import Rate from "../../../components/Rate";
 
 export default function RecommendedSection() {
     // 1. 데이터를 state로 관리하고, liked 속성을 추가합니다.
@@ -55,10 +56,7 @@ export default function RecommendedSection() {
                                     <img src="/images/icons/ico-map.svg" alt="위치" />
                                     {data.location}
                                 </p>
-                                <p className="flex items-center text-sm text-[#D95500]">
-                                    <img src="/images/icons/ico-rate.svg" alt="별점" /> 
-                                    {data.star_rate}
-                                </p>
+                                <Rate rateNum={data.star_rate}/>
                                  <div className="border-stone-300 border-2 border-solid rounded-4xl flex items-center w-fit mt-1.5">
                                     <span className="text-[#938F8D] text-sm font-semibold px-2.5">{data.hashtag_1}</span>
                                 </div>
