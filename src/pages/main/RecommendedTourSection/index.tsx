@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { DataTour } from "./data/DataTour";
+import Rate from "../../../components/Rate";
 
 export default function RecommendedTourSection() {
     const [tours, setTours] = useState(
@@ -42,7 +43,7 @@ export default function RecommendedTourSection() {
                                 aria-pressed={tour.isLiked}
                                 aria-label={tour.isLiked ? "Unlike tour" : "Like tour"}
                                 onClick={() => toggleLike(index)}
-                                className="absolute top-3 right-3 rounded-full bg-black bg-opacity-40 p-2 transition-all hover:bg-opacity-60"
+                                className="absolute top-3 right-3 rounded-full bg-opacity-40 p-2 transition-all hover:bg-opacity-60"
                             >
                                 <svg
                                     width="20"
@@ -75,26 +76,7 @@ export default function RecommendedTourSection() {
                             </h3>
 
                             <div className="flex items-center gap-1">
-                                <div className="flex gap-0.5">
-                                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                                        <svg
-                                            key={starIndex}
-                                            width="12"
-                                            height="12"
-                                            viewBox="0 0 20 20"
-                                            fill={
-                                                starIndex < Math.round(tour.rating)
-                                                    ? "#D95500"
-                                                    : "#E6E2DF"
-                                            }
-                                        >
-                                            <path d="M10 1.5l2.35 4.76 5.26.76-3.8 3.7.9 5.25L10 13.9l-4.71 2.47.9-5.25-3.8-3.7 5.26-.76L10 1.5z" />
-                                        </svg>
-                                    ))}
-                                </div>
-                                <span className="text-xs font-semibold text-[#D95500]">
-                                    {tour.rating.toFixed(1)}
-                                </span>
+                                <Rate rateNum={tour.rating} />
                             </div>
                         </div>
                     </div>

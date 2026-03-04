@@ -46,6 +46,7 @@ GLYF/
 │   │   ├── Gnb.tsx : 상단 네비게이션 컴포넌트
 │   │   ├── Footer.tsx : 하단 푸터 컴포넌트
 │   │   ├── GnbSecond.tsx : 상단 네비게이션 컴포넌트 - 2
+│   │   ├── Rate.tsx : 별점 컴포넌트
 │   │   └── data/
 │   │       ├── GnbMenuData.ts: Gnb 메뉴 데이터
 │   │       └── index.tsx: Gnb Setting 항목 데이터

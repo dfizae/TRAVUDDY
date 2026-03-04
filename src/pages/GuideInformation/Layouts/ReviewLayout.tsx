@@ -1,3 +1,4 @@
+import Rate from "../../../components/Rate";
 import { DataReview } from "./data/DataReview";
 
 export default function ReviewLayout() {
@@ -69,27 +70,7 @@ export default function ReviewLayout() {
                                     <span>{review.timeText}</span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                    <div className="flex items-center gap-0.5">
-                                        {Array.from({ length: 5 }).map((_, starIndex) => (
-                                            <svg
-                                                key={starIndex}
-                                                width="14"
-                                                height="14"
-                                                viewBox="0 0 20 20"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill={
-                                                    starIndex < Math.round(review.rating)
-                                                        ? "#D95500"
-                                                        : "#E6E2DF"
-                                                }
-                                            >
-                                                <path d="M10 1.5l2.35 4.76 5.26.76-3.8 3.7.9 5.25L10 13.9l-4.71 2.47.9-5.25-3.8-3.7 5.26-.76L10 1.5z" />
-                                            </svg>
-                                        ))}
-                                    </div>
-                                    <span className="text-xs font-semibold text-[#D95500]">
-                                        {review.rating.toFixed(1)}
-                                    </span>
+                                    <Rate rateNum={review.rating} />
                                 </div>
                             </div>
 
