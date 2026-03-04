@@ -102,18 +102,35 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                         {isExpanded ? "close all" : "view all"}
                         <span className="text-xs">{isExpanded ? "▲" : "▼"}</span>
                     </button>
-                </div>             
+                </div>
 
                 {/* 위치 정보 */}
-                <div className="p-4 flex items-start gap-3 bg-white rounded-xl mx-4 my-2.5">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13.0718 5.64286C13.0718 9.07143 7.92899 13.0714 7.92899 13.0714C7.92899 13.0714 2.78613 9.07143 2.78613 5.64286C2.78613 2.84171 5.12785 0.5 7.92899 0.5C10.7301 0.5 13.0718 2.84171 13.0718 5.64286Z" stroke="#4A4A4A" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M7.92815 7.35728C8.87493 7.35728 9.64244 6.58977 9.64244 5.643C9.64244 4.69622 8.87493 3.92871 7.92815 3.92871C6.98138 3.92871 6.21387 4.69622 6.21387 5.643C6.21387 6.58977 6.98138 7.35728 7.92815 7.35728Z" stroke="#4A4A4A" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M12.5883 11.3572H13.6429L15.3571 15.3572H0.5L2.21429 11.3572H3.2688" stroke="#4A4A4A" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                <div className="p-4 flex flex-col gap-3 bg-white rounded-xl mx-4 my-2.5">
+                    {/* 1. 기존 핀 아이콘 및 주소 텍스트 */}
+                    <div className="flex items-start gap-3">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.0718 5.64286C13.0718 9.07143 7.92899 13.0714 7.92899 13.0714C7.92899 13.0714 2.78613 9.07143 2.78613 5.64286C2.78613 2.84171 5.12785 0.5 7.92899 0.5C10.7301 0.5 13.0718 2.84171 13.0718 5.64286Z" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M7.92815 7.35728C8.87493 7.35728 9.64244 6.58977 9.64244 5.643C9.64244 4.69622 8.87493 3.92871 7.92815 3.92871C6.98138 3.92871 6.21387 4.69622 6.21387 5.643C6.21387 6.58977 6.98138 7.35728 7.92815 7.35728Z" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M12.5883 11.3572H13.6429L15.3571 15.3572H0.5L2.21429 11.3572H3.2688" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
 
-                    <div>
-                        <p className="text-sm text-[#938F8D]">{course.map_location}</p>
+                        <div>
+                            <p className="text-sm text-[#938F8D]">{course.map_location}</p>
+                        </div>
+                    </div>
+
+                    {/* 2. 추가된 구글 맵 iframe 영역 */}
+                    <div className="w-full h-50 rounded-lg overflow-hidden mt-1">
+                        <iframe
+                            // 여기에 구글 지도에서 복사한 HTML src 주소를 넣습니다. (현재는 서울숲 예시)
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.012574635671!2d127.03713251564756!3d37.54459037980209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca384931a7b1b%3A0x808df8b9d8dc93c1!2sSeoul%20Forest!5e0!3m2!1sen!2skr!4v1684305021234!5m2!1sen!2skr"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen={true}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
                     </div>
                 </div>
 
@@ -126,7 +143,7 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                         <span className="font-regular text-sm">Private SUV (Up to 6)</span>
                     </p>
                     <p className="flex gap-4 pl-4">
-                        <img src="/images/icons/ico-language.svg" alt="언어" />
+                        <img src="/images/icons/ico-languageBlack.svg" alt="언어" />
                         <span className="font-regular text-sm">German, English, Korean</span>
                     </p>
                     <p className="flex gap-4 pl-4">

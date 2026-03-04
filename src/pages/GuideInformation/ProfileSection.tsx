@@ -134,7 +134,7 @@ export default function ProfileSection({data}: {data: {name: string; location: s
                     <span className="font-regular text-sm">Private SUV (Up to 6)</span>
                 </p>
                 <p className="flex gap-4 pl-4">
-                    <img src="/images/icons/ico-language.svg" alt="언어" />
+                    <img src="/images/icons/ico-languageBlack.svg" alt="언어" />
                     <span className="font-regular text-sm">German, English, Korean</span>
                 </p>
                 <p className="flex gap-4 pl-4">
