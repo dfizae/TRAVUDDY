@@ -29,7 +29,7 @@ export default function HeroSection() {
       <div className="bg-[url('/images/pics/heroBackground.svg')] h-70 bg-cover bg-center flex flex-col items-center justify-end px-6 relative">
 
         <h1 className="text-white text-xl font-bold mb-14 drop-shadow-md text-center whitespace-nowrap">
-          "Travuddy is wherever you go"
+          "The Point of your journey"
         </h1>
 
         <form action="" className="w-full  relative mb-11">
