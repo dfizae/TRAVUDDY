@@ -54,7 +54,6 @@ export default function GuideInformation(){
                     <Footer />
                 </div>
             </motion.div>
-            
         </>
     );
 }
