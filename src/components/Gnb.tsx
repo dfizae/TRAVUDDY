@@ -64,7 +64,7 @@ export default function Gnb() {
           </button>
         </div>
 
-        <div className={`overflow-hidden transition-all duration-300 ${isClicked ? 'max-h-screen' : 'max-h-0'} bg-[hsl(25,100%,95%,1)]`}>
+        <div className={`overflow-hidden transition-all duration-300 md:fixed md:top-16 md:left-0 md:w-64 md:h-[calc(100vh-64px)] ${isClicked ? 'max-h-screen md:translate-x-0' : 'max-h-0 md:-translate-x-full'} bg-[hsl(25,100%,95%,1)]`}>
           <div className="p-6">
             <h1 className="mb-4 font-semibold">
               <img src="/images/pics/img-menuProfile.svg" alt="내 프로필" className="inline mr-2" />
