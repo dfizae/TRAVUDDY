@@ -19,8 +19,8 @@ export default function RecommendedCountrySection() {
 
     return(
         <>
-            <section className="mb-10">
-                <div className="flex items-center justify-between px-4 mt-10 mb-5">
+            <section className="mb-10 px-4 md:px-8">
+                <div className="mx-auto max-w-7xl flex items-center justify-between mt-10 mb-5">
                     <h1 className="text-base font-semibold">Recommended Country</h1>
                     <Link to="/recommended" className="text-sm font-medium text-[#D95500] cursor-pointer">View all</Link>
                 </div>

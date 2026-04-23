@@ -17,12 +17,14 @@ export default function RecommendedTourSection() {
 
     
     return (
-        <section className="px-4 py-8">
-            <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-[#1A1A1A]">Recommended Tour</h2>
-                <a href="#" className="text-sm font-semibold text-[#D95500]">
-                    View all
-                </a>
+        <section className="px-4 py-8 md:px-8">
+            <div className="mx-auto max-w-7xl">
+                <div className="mb-4 flex items-center justify-between">
+                    <h2 className="text-xl font-bold text-[#1A1A1A]">Recommended Tour</h2>
+                    <a href="#" className="text-sm font-semibold text-[#D95500]">
+                        View all
+                    </a>
+                </div>
             </div>
 
             <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
