@@ -26,13 +26,13 @@ export default function HeroSection() {
 
   return (
     <section>
-      <div className="bg-[url('/images/pics/heroBackground.svg')] min-h-[520px] md:min-h-[720px] bg-cover bg-center flex flex-col items-center justify-end px-6 md:px-12 relative">
+      <div className="bg-[url('/images/pics/heroBackground.svg')] min-h-[520px] md:min-h-[700px] bg-cover bg-center flex flex-col items-center justify-center px-6 md:px-12 relative">
 
-        <h1 className="text-white text-3xl md:text-5xl font-bold mb-14 drop-shadow-md text-center max-w-3xl">
+        <h1 className="text-white text-3xl md:text-5xl font-bold mb-42 drop-shadow-md text-center max-w-3xl">
           The Point of your journey
         </h1>
 
-        <form action="" className="w-full max-w-4xl relative mb-11">
+        <form action="" className="w-full max-w-4xl relative">
           <div className="relative flex items-center">
             <span className="absolute left-5 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
@@ -44,7 +44,7 @@ export default function HeroSection() {
               onFocus={() => setIsSearchOpen(true)}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className={`w-full bg-white text-gray-700 py-4 pl-14 pr-12 shadow-xl outline-none transition-all placeholder:text-gray-400 text-sm ${isSearchOpen ? "rounded-t-3xl" : "rounded-[32px]"
+              className={`w-full bg-white text-gray-700 py-4 pl-14 pr-12 shadow-xl outline-none transition-all placeholder:text-gray-400 text-sm ${isSearchOpen ? "rounded-t-[10px]" : "rounded-[10px]"
                 }`}
               type="text"
               placeholder="Where do you want to go?"
