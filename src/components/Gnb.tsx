@@ -1,22 +1,24 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { GnbMenuData } from './data/GnbMenuData';
 import { GnbSettingData } from './data/GnbSettingData';
 
-export default function Gnb() {
+interface GnbProps {
+  isSidebarOpen: boolean;
+  onToggleSidebar: () => void;
+}
+
+export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [activeRole, setActiveRole] = useState('traveler');
 
-  const handleToggleClick = () => {
-    setIsClicked((prev) => !prev);
-  };
-
   return (
     <>
+      {/* ─── MOBILE: 상단 네비게이션 바 ─── */}
       <nav className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300 md:hidden">
         <button
           className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
           aria-label="Menu"
-          onClick={handleToggleClick}
+          onClick={() => setIsClicked(prev => !prev)}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 5H21" stroke="#4A4A4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -26,7 +28,7 @@ export default function Gnb() {
         </button>
 
         <div className="flex items-center gap-3">
-          <span className="text-lg font-bold text-[#1A1A1A]">trippoint</span>
+          <img src="/images/icons/ico-logo.svg" alt="Logo" />
         </div>
 
         <button
@@ -40,12 +42,29 @@ export default function Gnb() {
         </button>
       </nav>
 
-      <aside className="hidden md:fixed md:inset-y-0 md:left-0 md:z-[1000] md:w-72 md:border-r md:border-gray-200 md:bg-[hsl(25,100%,95%,1)] md:px-6 md:py-8 md:shadow-sm">
-        <div className="mb-10">
-          <span className="text-2xl font-bold text-[#1A1A1A]">trippoint</span>
+      {/* ─── DESKTOP: 왼쪽 사이드바 ─── */}
+      <aside
+        className={`hidden md:flex md:flex-col fixed inset-y-0 left-0 z-[1000] w-72 border-r border-gray-200 bg-[hsl(25,100%,95%,1)] px-6 py-8 shadow-sm transition-transform duration-300 ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
+        {/* 로고 + 접기 버튼 */}
+        <div className="flex items-center justify-between mb-10">
+          <img src="/images/icons/ico-logo.svg" alt="Logo" />
+          <button
+            onClick={onToggleSidebar}
+            className="p-2 rounded-lg text-gray-400 hover:bg-orange-50 hover:text-[#D95500] transition-colors"
+            aria-label="사이드바 닫기"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M9 3V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
         </div>
 
-        <div className="mb-10 rounded-[32px] border border-gray-200 bg-white p-5 shadow-sm">
+        {/* 프로필 카드 */}
+        <div className="mb-10 rounded-[32px] border border-gray-200 bg-white p-5 shadow-sm md:hidden">
           <div className="flex items-center gap-3">
             <img src="/images/pics/img-menuProfile.svg" alt="내 프로필" className="h-14 w-14 rounded-full object-cover" />
             <div>
@@ -55,11 +74,15 @@ export default function Gnb() {
           </div>
         </div>
 
-        <div className="space-y-8">
+        {/* 메뉴 */}
+        <div className="flex-1 space-y-8 overflow-y-auto">
           <div>
             <ul className="space-y-3">
               {GnbMenuData.map((item, index) => (
-                <li key={index} className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm font-medium text-[#4A4A4A] transition hover:bg-orange-50 hover:text-[#D95500] cursor-pointer">
+                <li
+                  key={index}
+                  className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm font-medium text-[#4A4A4A] transition hover:bg-orange-50 hover:text-[#D95500] cursor-pointer"
+                >
                   <img src={item.img_src} alt={item.img_alt} />
                   {item.title}
                 </li>
@@ -71,7 +94,10 @@ export default function Gnb() {
             <p className="mb-4 text-sm font-semibold text-[#4A4A4A]">Setting</p>
             <ul className="space-y-3">
               {GnbSettingData.map((item, index) => (
-                <li key={index} className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm text-[#4A4A4A] transition hover:bg-orange-50 hover:text-[#D95500] cursor-pointer">
+                <li
+                  key={index}
+                  className="flex items-center gap-3 rounded-3xl px-4 py-3 text-sm text-[#4A4A4A] transition hover:bg-orange-50 hover:text-[#D95500] cursor-pointer"
+                >
                   <img src={item.img_src} alt={item.img_alt} />
                   {item.title}
                 </li>
@@ -80,13 +106,12 @@ export default function Gnb() {
           </div>
         </div>
 
-        <div className="mt-10 flex rounded-full bg-white p-1 shadow-sm">
+        {/* Traveler / Guide 토글 */}
+        <div className="mt-6 flex rounded-full bg-white p-1 shadow-sm">
           <button
             onClick={() => setActiveRole('traveler')}
             className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-              activeRole === 'traveler'
-                ? 'bg-[#D95500] text-white'
-                : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+              activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
             }`}
           >
             {activeRole === 'traveler' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
@@ -95,9 +120,7 @@ export default function Gnb() {
           <button
             onClick={() => setActiveRole('guide')}
             className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-              activeRole === 'guide'
-                ? 'bg-[#D95500] text-white'
-                : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+              activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
             }`}
           >
             {activeRole === 'guide' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
@@ -106,11 +129,32 @@ export default function Gnb() {
         </div>
       </aside>
 
+      {/* 사이드바가 닫혔을 때 열기 버튼 - 데스크톱 전용 */}
+      <button
+        onClick={onToggleSidebar}
+        aria-label="사이드바 열기"
+        className={`fixed top-4 left-4 z-[1000] p-2 rounded-full bg-white shadow-md text-gray-500 hover:text-[#D95500] transition-all duration-300 hidden md:flex ${
+          isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
+        }`}
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 5H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M3 19H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {/* ─── MOBILE: 배경 오버레이 ─── */}
       {isClicked && (
         <div className="fixed inset-0 z-[900] bg-black/20 md:hidden" onClick={() => setIsClicked(false)} />
       )}
 
-      <div className={`fixed top-16 left-0 right-0 z-[1000] overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${isClicked ? 'max-h-screen' : 'max-h-0'}`}>
+      {/* ─── MOBILE: 드롭다운 메뉴 ─── */}
+      <div
+        className={`fixed top-16 left-0 right-0 z-[1000] overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${
+          isClicked ? 'max-h-screen' : 'max-h-0'
+        }`}
+      >
         <div className="p-6">
           <div className="mb-4 font-semibold">
             <img src="/images/pics/img-menuProfile.svg" alt="내 프로필" className="inline mr-2" />
@@ -118,7 +162,10 @@ export default function Gnb() {
           </div>
           <ul className="space-y-3 mb-6">
             {GnbMenuData.map((item, index) => (
-              <li key={index} className="flex items-center gap-2 cursor-pointer rounded-3xl px-4 py-3 transition hover:bg-orange-50 hover:text-[#D95500]">
+              <li
+                key={index}
+                className="flex items-center gap-2 cursor-pointer rounded-3xl px-4 py-3 transition hover:bg-orange-50 hover:text-[#D95500]"
+              >
                 <img src={item.img_src} alt={item.img_alt} />
                 {item.title}
               </li>
@@ -128,7 +175,10 @@ export default function Gnb() {
           <div className="mb-4 font-semibold">Setting</div>
           <ul className="space-y-3 mb-6">
             {GnbSettingData.map((item, index) => (
-              <li key={index} className="flex items-center gap-2 cursor-pointer rounded-3xl px-4 py-3 transition hover:bg-orange-50 hover:text-[#D95500]">
+              <li
+                key={index}
+                className="flex items-center gap-2 cursor-pointer rounded-3xl px-4 py-3 transition hover:bg-orange-50 hover:text-[#D95500]"
+              >
                 <img src={item.img_src} alt={item.img_alt} />
                 {item.title}
               </li>
@@ -138,9 +188,7 @@ export default function Gnb() {
             <button
               onClick={() => setActiveRole('traveler')}
               className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-                activeRole === 'traveler'
-                  ? 'bg-[#D95500] text-white'
-                  : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+                activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
               }`}
             >
               {activeRole === 'traveler' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
@@ -149,9 +197,7 @@ export default function Gnb() {
             <button
               onClick={() => setActiveRole('guide')}
               className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-                activeRole === 'guide'
-                  ? 'bg-[#D95500] text-white'
-                  : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+                activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
               }`}
             >
               {activeRole === 'guide' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}

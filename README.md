@@ -1,14 +1,11 @@
 ## 💡 GLYF 웹 사이트 리뉴얼 (React + Vite로 체인지)
 
 ### 🖥️ 관련 링크
-|목록|링크|비고|
-|:--|:--|:--|
-|`figma`|[피그마 작업물 링크](https://www.figma.com/design/JJXCXyblldp7HooTXlGetm/Travuddy-%ED%8A%B8%EB%A0%88%EB%B2%84%EB%94%94?node-id=1-9714&t=a1Tt7Ksccqa2CSGu-1)||
-|`vercel`|||
-|`velog`|||
+|목록|링크|
+|:--|:--|
+|`figma`|[피그마 작업물 링크](https://www.figma.com/design/JJXCXyblldp7HooTXlGetm/Travuddy-%ED%8A%B8%EB%A0%88%EB%B2%84%EB%94%94?node-id=1-9714&t=a1Tt7Ksccqa2CSGu-1)|
+|`vercel`|[홈페이지 링크(vercel 로그인 필요)](https://travuddy.vercel.app/)|
 <br>
-
-## 랙걸려
 
 ## ℹ️ 작업물 정보
 |정보|설명|
@@ -16,17 +13,15 @@
 |🗓️ 작업 기간|2026-1-14 ~ |
 |⚒️ 작업 분야|코딩(프론트엔드)|
 |🧑‍💻 기여도|공동 작업 (내 작업: 프론트엔드 개발)|
+|🧑‍💻 함께한 작업자||
 <br>
 
 ## 🧩 개발 환경
-|분야|기술|
-|:---|:---|
-|Frontend|`React`, `Typescript`, `Vite`|
-|Library|`Swiper`|
-|Styling| `CSS3`, `Tailwind CSS`|
-|Version Control|`Git`, `GitHub`|
-|Deployment|`Vercel`|
-|Design Tool|![Figma](https://github.com/user-attachments/assets/67394921-4b2e-4896-a94e-c3755396fe90)|
+### 🌐 Frontend
+[![My Skills](https://skillicons.dev/icons?i=js,html,css,tailwind,react,ts&perline=3)](https://skillicons.dev)
+
+### 🧰 Tools & Environment
+[![My Skills](https://skillicons.dev/icons?i=figma,vite,vercel,git,vscode&perline=3)](https://skillicons.dev)
 <br>
 
 ## 📁 폴더 구조
@@ -110,6 +105,6 @@ GLYF/
 - [x] 검색창 수정
 - [x] Rate 컴포넌트 리펙토리
 
-- **2026-03-26 ~**
+- **2026-03-26 ~ 2026-04**
 - [x] 데스크톱, 태블릿 등 반응형 디자인 설계
-
+    - [o] GnB 반응형 디자인 재조정
