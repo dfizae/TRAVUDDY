@@ -74,7 +74,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
         </div>
 
         {/* 메뉴 */}
-        <div className="flex-1 space-y-8 overflow-y-auto">
+        <div className="flex-1 space-y-8 overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:none]">
           <div>
             <ul className="space-y-3">
               {GnbMenuData.map((item, index) => (
@@ -129,7 +129,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
       </aside>
 
       {/* ─── DESKTOP: 상단 네비게이션 바 ─── */}
-      <div className="hidden md:flex fixed top-0 left-0 right-0 z-[1000] items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300">
+      <div className={`hidden md:flex fixed top-0 left-0 right-0 z-[1000] items-center justify-between px-3.5 py-3 pr-30 backdrop-blur-md transition-all duration-300 ${isSidebarOpen ? 'bg-[hsla(25,100%,95%,0.95)]' : 'hover:bg-[hsla(25,100%,95%,0.95)]'}`}>
         <div className="flex items-center gap-2">
           <button
             onClick={onToggleSidebar}
@@ -145,9 +145,9 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
           <img src="/images/icons/ico-logo.svg" alt="Logo" />
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-5">
           <button
-            className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
+            className="cursor-pointer rounded-full p-2 transition-all hover:opacity-90"
             aria-label="Alert"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
