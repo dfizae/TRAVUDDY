@@ -50,7 +50,6 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
       >
         {/* 로고 + 접기 버튼 */}
         <div className="flex items-center justify-between mb-10">
-          <img src="/images/icons/ico-logo.svg" alt="Logo" />
           <button
             onClick={onToggleSidebar}
             className="p-2 rounded-lg text-gray-400 hover:bg-orange-50 hover:text-[#D95500] transition-colors"
@@ -129,20 +128,37 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
         </div>
       </aside>
 
-      {/* 사이드바가 닫혔을 때 열기 버튼 - 데스크톱 전용 */}
-      <button
-        onClick={onToggleSidebar}
-        aria-label="사이드바 열기"
-        className={`fixed top-4 left-4 z-[1000] p-2 rounded-full bg-white shadow-md text-gray-500 hover:text-[#D95500] transition-all duration-300 hidden md:flex ${
-          isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100 pointer-events-auto'
-        }`}
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 5H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M3 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M3 19H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </button>
+      {/* ─── DESKTOP: 상단 네비게이션 바 ─── */}
+      <div className="hidden md:flex fixed top-0 left-0 right-0 z-[1000] items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300">
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onToggleSidebar}
+            aria-label="사이드바 토글"
+            className="p-2 rounded-full bg-white shadow-md text-gray-500 hover:text-[#D95500] transition-colors duration-200"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 5H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 19H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <img src="/images/icons/ico-logo.svg" alt="Logo" />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <button
+            className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
+            aria-label="Alert"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 8.4C18 6.70261 17.3679 5.07475 16.2426 3.87452C15.1174 2.67428 13.5913 2 12 2C10.4087 2 8.88258 2.67428 7.75736 3.87452C6.63214 5.07475 6 6.70261 6 8.4C6 15.8667 3 18 3 18H21C21 18 18 15.8667 18 8.4Z" stroke="#4A4A4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M13.7295 21C13.5537 21.3031 13.3014 21.5547 12.9977 21.7295C12.6941 21.9044 12.3499 21.9965 11.9995 21.9965C11.6491 21.9965 11.3049 21.9044 11.0013 21.7295C10.6977 21.5547 10.4453 21.3031 10.2695 21" stroke="#4A4A4A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <img src="/images/pics/img-menuProfile.svg" alt="Profile" />
+        </div>
+      </div>
+      
 
       {/* ─── MOBILE: 배경 오버레이 ─── */}
       {isClicked && (
