@@ -47,7 +47,7 @@ export default function HeroSection() {
                 onFocus={() => setIsSearchOpen(true)}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className={`w-full bg-white text-gray-700 py-4 pl-14 pr-12 shadow-xl outline-none transition-all placeholder:text-gray-400 text-sm ${isSearchOpen ? "rounded-t-[10px]" : "rounded-[10px]"}`}
+                className={`w-full bg-white text-gray-700 py-4 md:py-5 pl-14 pr-12 shadow-xl outline-none transition-all placeholder:text-gray-400 text-sm md:text-base ${isSearchOpen ? "rounded-t-[10px]" : "rounded-[10px]"}`}
                 type="text"
                 placeholder="Where do you want to go?"
               />

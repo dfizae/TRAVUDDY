@@ -16,8 +16,8 @@ export default function RecommendedTourSection() {
     };
 
     return (
-        <section className="px-4 py-8 md:px-8">
-            <div className="mx-auto max-w-7xl">
+        <section className="px-4 py-8 md:px-0">
+            <div className="mx-auto max-w-7xl md:max-w-[880px]">
                 <div className="mb-4 flex items-center justify-between">
                     <h2 className="text-xl font-bold text-[#1A1A1A]">Recommended Tour</h2>
                     <a href="#" className="text-sm font-semibold text-[#D95500]">
@@ -28,7 +28,7 @@ export default function RecommendedTourSection() {
                 <div className="grid gap-4 grid-cols-2 md:grid-cols-3">
                     {tours.map((tour, index) => (
                         <div key={index} className="group overflow-hidden rounded-lg">
-                            <div className="relative h-40 md:h-48 overflow-hidden bg-gray-200 rounded-lg">
+                            <div className="relative h-40 md:h-[173px] overflow-hidden bg-gray-200 rounded-[10px]">
                                 <img
                                     src={tour.img_src}
                                     alt={tour.img_alt}
@@ -39,7 +39,7 @@ export default function RecommendedTourSection() {
                                     aria-pressed={tour.isLiked}
                                     aria-label={tour.isLiked ? "Unlike tour" : "Like tour"}
                                     onClick={() => toggleLike(index)}
-                                    className="absolute top-3 right-3 rounded-full bg-opacity-40 p-2 transition-all hover:bg-opacity-60"
+                                    className="absolute top-3 left-3 rounded-full bg-black/20 p-1.5 transition-all hover:bg-black/40"
                                 >
                                     <svg
                                         width="20"

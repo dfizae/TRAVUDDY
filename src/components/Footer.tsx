@@ -1,6 +1,10 @@
-export default function Footer() {
+interface FooterProps {
+    isSidebarOpen?: boolean;
+}
+
+export default function Footer({ isSidebarOpen = false }: FooterProps) {
     return (
-        <footer className="w-full bg-[#1A1A1A] text-white py-10 px-6">
+        <footer className={`w-full bg-[#1A1A1A] text-white py-10 px-6 transition-all duration-300 ${isSidebarOpen ? 'md:pl-[calc(18rem+24px)]' : ''}`}>
             <div className="max-w-300 mx-auto flex flex-col gap-8">
                 
                 {/* 1. 브랜드 섹션 */}

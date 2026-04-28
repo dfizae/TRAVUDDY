@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell([System.IO.Directory]::GetDirectories\\(\"C:\\\\Users\\\\SSAFY\\\\.claude\\\\projects\"\\))"
+    ]
+  }
+}
