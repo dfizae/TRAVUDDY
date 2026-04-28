@@ -13,7 +13,7 @@
 |🗓️ 작업 기간|2026-1-14 ~ |
 |⚒️ 작업 분야|코딩(프론트엔드)|
 |🧑‍💻 기여도|공동 작업 (내 작업: 프론트엔드 개발)|
-|🧑‍💻 함께한 작업자||
+|🧑‍💻 함께한 작업자| 류xx : UI/UX 예비 디자이너 |
 <br>
 
 ## 🧩 개발 환경
@@ -24,10 +24,19 @@
 [![My Skills](https://skillicons.dev/icons?i=figma,vite,vercel,git,vscode&perline=3)](https://skillicons.dev)
 <br>
 
+### 📝 Claude Code 사용
+|정보|설명|
+|:---|:---|
+|🧩 모델| Sonnet 4.6 |
+|⚒️ 스킬| web-artifacts-builder |
+|🧑‍💻 사용 이유| Figma URL을 가져와 컴포넌트 간 간격, 스타일 등에 오류가 있는지 검토 및 데스크톱 반응형 디자인 설계 향상|
+
+
 ## 📁 폴더 구조
 
 ```
-GLYF/
+TRAVUDDY/
+├──.claude/ : 클로드 설정 관련 폴더
 ├── node_modules/
 │   │   ├── .../
 ├── public/
@@ -79,6 +88,7 @@ GLYF/
 ├── package-lock.json
 ├── package.json
 ├── README.md
+├── skills-lock.json : Claude 스킬 설정 json 파일
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
@@ -110,4 +120,5 @@ GLYF/
 
 - **2026-04-23 ~ 2026-**
 - [x] GnB 반응형 디자인 재조정
-- [x] Main 페이지를 Claude Code를 사용해 디자인 검토 및 수정 
+- [x] Main 페이지를 Claude Code를 사용해 디자인 검토 및 수정
+    
