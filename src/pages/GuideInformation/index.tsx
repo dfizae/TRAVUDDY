@@ -50,7 +50,7 @@ export default function GuideInformation(){
                 <div className="w-full bg-[#FAF9F8]">
                     <GnbSecond onClose={() => window.history.back()} />
                     <ProfileSection data={data}/>
-                    <InformationSection/>
+                    <InformationSection />
                     <Footer />
                 </div>
             </motion.div>
