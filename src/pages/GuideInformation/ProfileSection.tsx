@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Rate from "../../components/Rate";
 
 const HashtagBadge = ({ tag }: { tag: string }) => (
     <div className="border-stone-300 border-2 border-solid rounded-full px-3 py-1 flex items-center shrink-0">
@@ -57,10 +58,7 @@ export default function ProfileSection({ data }: { data: { name: string; locatio
                                         {data.location}
                                     </p>
     
-                                    <p className="flex items-center gap-1 text-sm text-[#D95500]">
-                                        <img src="/images/icons/ico-stars.svg" alt="별점" className="w-19 h-4" />
-                                        {data.star_rate}
-                                    </p>
+                                    <Rate rateNum={data.star_rate} />
                                 </div>
                                 
                                 {/* 하트 버튼 */}
@@ -126,7 +124,7 @@ export default function ProfileSection({ data }: { data: { name: string; locatio
                     </button>
                 </div>
     
-                <hr className="border-0 border-t border-[#E6E2DF] mt-6 mx-4 md:mx-8" />
+                <hr className="border-0 border-t border-[#E6E2DF] mt-6" />
     
                 {/* 가이드의 차량, 사용 언어, 사진 스킬 - 데스크톱에서 3열 가로 배치 */}
                 <div className="flex flex-col gap-4 justify-center py-3.5 md:flex-row md:justify-between md:gap-0 md:px-4 md:py-3.5">
@@ -144,7 +142,7 @@ export default function ProfileSection({ data }: { data: { name: string; locatio
                     </p>
                 </div>
     
-                <hr className="border-0 border-t border-[#E6E2DF] mb-2.5 mx-4 md:mx-8" />
+                <hr className="border-0 border-t border-[#E6E2DF] mb-2.5" />
             </div>
         </>
     );
