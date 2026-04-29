@@ -121,3 +121,6 @@ TRAVUDDY/
 - **2026-04-23 ~ 2026-**
 - [x] GnB 반응형 디자인 재조정
 - [x] Main 페이지를 Claude Code를 사용해 디자인 검토 및 수정
+- [x] GuideInformation 페이지 데스크톱 반응형 디자인 설계 및 구현
+    - [x] ProfileSection 디자인 수정
+    - [o] InformationSection 디자인 수정

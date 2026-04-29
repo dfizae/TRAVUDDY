@@ -52,7 +52,7 @@ export default function RecommendedSection() {
                                     <img src={data.image} alt={data.name} className="h-60 w-full object-cover md:h-full md:rounded-l-[10px]" />
                                 </div>
 
-                                <div className="flex flex-col gap-3 p-5 md:p-3 md:gap-2 overflow-hidden flex-1">
+                                <div className="flex flex-col gap-3 p-5 md:p-2.5 md:gap-2 overflow-hidden flex-1 md:justify-center">
                                     <p className="font-semibold flex items-center gap-3 text-lg text-[#1A1A1A] shrink-0">
                                         {data.name}
                                         <img src="/images/icons/ico-certified.svg" alt="인증" />
@@ -73,9 +73,9 @@ export default function RecommendedSection() {
                                         {data.location}
                                     </p>
                                     <Rate rateNum={data.star_rate} />
-                                    <div className="flex flex-wrap gap-2 overflow-hidden">
+                                    <div className="flex flex-wrap gap-1 overflow-hidden">
                                         {[data.hashtag_1, data.hashtag_2, data.hashtag_3, data.hashtag_4, data.hashtag_5, data.hashtag_6].filter(Boolean).map((tag) => (
-                                            <span key={tag} className="rounded-full border border-stone-300 px-3 py-1 text-sm text-[#938F8D] shrink-0">{tag}</span>
+                                            <span key={tag} className="rounded-full border border-stone-500 px-3 py-1 text-xs text-[#938F8D] shrink-0">{tag}</span>
                                         ))}
                                     </div>
                                 </div>
