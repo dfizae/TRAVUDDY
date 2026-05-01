@@ -30,11 +30,11 @@ export default function CourseLayout() {
 
     return (
         <>
-            <ul className="px-4">
+            <ul className="px-4 md:flex md:gap-5">
                 {DataCourse.map((course, index) => (
-                    <li 
-                        key={index} 
-                        className="mb-4 rounded-lg bg-white cursor-pointer"
+                    <li
+                        key={index}
+                        className="w-full md:flex-1 mb-4 rounded-lg bg-white cursor-pointer"
                         onClick={() => handleCourseClick(index, course)}
                     >
                         <div className="relative">

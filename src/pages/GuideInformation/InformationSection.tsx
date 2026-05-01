@@ -16,7 +16,7 @@ export default function InformationSection() {
     return (
         <>
             {/* toggle 버튼 섹션 */}
-            <div className="md:px-35 px-4">
+            <div className="md:px-35 px-4 md:mb-10">
                 <div className="flex gap-3 md:gap-[32.2px] items-center pt-7.5 pb-10">
                     <button className="flex flex-col flex-1 gap-1 items-center border-b" onClick={() => handleToggleClick("course")}>
                         <img src={isClicked ? "/images/icons/ico-course_active.svg" : "/images/icons/ico-course_default.svg"} alt="Course" />
