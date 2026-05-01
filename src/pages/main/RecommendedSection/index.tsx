@@ -21,7 +21,7 @@ export default function RecommendedSection() {
 
     return (
         <div className="px-4 mt-12.5 md:px-0">
-            <div className="mx-auto max-w-7xl md:max-w-[880px]">
+            <div className="mx-auto max-w-7xl md:max-w-220">
                 <div className="flex items-center justify-between">
                     <h1 className="text-base font-semibold">Recommended Guide</h1>
                     <Link to="/Guide" className="text-sm font-medium text-[#D95500] cursor-pointer">View all</Link>
@@ -34,8 +34,8 @@ export default function RecommendedSection() {
                             key={data.id}
                             className={data.id === 3 ? 'md:hidden' : ''}
                         >
-                            <li className="relative overflow-hidden rounded-[10px] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md flex flex-col md:flex-row md:h-[173px]">
-                                <div className="relative md:w-[205px] md:shrink-0">
+                            <li className="relative overflow-hidden rounded-[10px] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md flex flex-col md:flex-row md:h-43.25">
+                                <div className="relative md:w-51.25 md:shrink-0">
                                     <div
                                         onClick={(e) => toggleLike(e, data.id)}
                                         className="absolute top-3 left-3 z-10 cursor-pointer rounded-full"
