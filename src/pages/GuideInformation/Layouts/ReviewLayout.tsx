@@ -4,9 +4,9 @@ import { DataReview } from "./data/DataReview";
 export default function ReviewLayout() {
     return(
         <>
-            <ul className="px-4">
+            <ul className="px-4 md:grid md:grid-cols-2 md:gap-5">
                 {DataReview.map((review, index) => (
-                    <li key={index} className="mb-4 overflow-hidden rounded-lg bg-white">
+                    <li key={index} className="mb-4 md:mb-0 overflow-hidden rounded-lg bg-white">
                         <div className="flex items-center justify-between px-4 pt-4">
                             <div className="flex items-center gap-3">
                                 <img
