@@ -22,16 +22,10 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
     const [showAllReviews, setShowAllReviews] = useState(false);
 
     return (
-        <div className="fixed inset-0 z-50 flex">
-            {/* 배경 오버레이 */}
-            <div
-                className="flex-1 bg-black/20"
-                onClick={onClose}
-            />
-
+        <div className="fixed inset-0 z-50">
             {/* 슬라이드 패널 */}
-            <div className="w-full sm:w-96 bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
-                <div className="fixed top-0 z-1000 w-full sm:w-96">
+            <div className="w-full h-full bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
+                <div className="fixed top-0 z-1000 w-full">
                     <GnbSecond onClose={onClose} />
                 </div>
 
@@ -40,11 +34,14 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     <img
                         src={course.img_src}
                         alt={course.img_alt}
-                        className="w-full h-64 object-cover"
+                        className="w-full h-64 lg:h-80 object-cover"
                     />
                 </div>
 
-
+                {/* 데스크톱: 2컬럼 레이아웃 (왼쪽 콘텐츠 + 오른쪽 예약 카드) */}
+                <div className="lg:flex lg:gap-8 lg:px-8 lg:pt-6">
+                {/* 왼쪽 콘텐츠 */}
+                <div className="lg:flex-1 lg:min-w-0">
 
                 {/* 호스트 정보 */}
                 <div className="pl-4 pt-5">
@@ -60,9 +57,27 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </div>
                 </div>
 
-                {/* 제목 */}
-                <div className="px-4">
-                    <h2 className="text-base font-semibold mb-2">{course.title2}</h2>
+                {/* 제목 + Like/Share (데스크톱에서 나란히) */}
+                <div className="px-4 flex justify-between items-start gap-4">
+                    <h2 className="text-base lg:text-xl font-semibold mb-2">{course.title2}</h2>
+                    <div className="hidden lg:flex items-center gap-4 shrink-0 mt-0.5">
+                        <button className="flex items-center gap-1.5 text-sm text-[#4A4A4A] hover:text-[#D95500]">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            Like
+                        </button>
+                        <button className="flex items-center gap-1.5 text-sm text-[#4A4A4A] hover:text-[#D95500]">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="18" cy="5" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                                <circle cx="6" cy="12" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                                <circle cx="18" cy="19" r="3" stroke="currentColor" strokeWidth="1.5"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" strokeWidth="1.5"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" strokeWidth="1.5"/>
+                            </svg>
+                            Share
+                        </button>
+                    </div>
                 </div>
 
                 {/* Overview */}
@@ -106,9 +121,9 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                 </div>
 
                 {/* 위치 정보 */}
-                <div className="p-4 flex flex-col gap-3 bg-white rounded-xl mx-4 my-2.5">
-                    {/* 1. 기존 핀 아이콘 및 주소 텍스트 */}
-                    <div className="flex items-start gap-3">
+                <div className="p-4 flex flex-col lg:flex-row-reverse lg:items-center gap-3 bg-white rounded-xl mx-4 my-2.5">
+                    {/* 핀 아이콘 및 주소 텍스트 */}
+                    <div className="flex items-start gap-3 lg:flex-1">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.0718 5.64286C13.0718 9.07143 7.92899 13.0714 7.92899 13.0714C7.92899 13.0714 2.78613 9.07143 2.78613 5.64286C2.78613 2.84171 5.12785 0.5 7.92899 0.5C10.7301 0.5 13.0718 2.84171 13.0718 5.64286Z" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M7.92815 7.35728C8.87493 7.35728 9.64244 6.58977 9.64244 5.643C9.64244 4.69622 8.87493 3.92871 7.92815 3.92871C6.98138 3.92871 6.21387 4.69622 6.21387 5.643C6.21387 6.58977 6.98138 7.35728 7.92815 7.35728Z" stroke="#4A4A4A" strokeLinecap="round" strokeLinejoin="round" />
@@ -120,8 +135,8 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                         </div>
                     </div>
 
-                    {/* 2. 추가된 구글 맵 iframe 영역 */}
-                    <div className="w-full h-50 rounded-lg overflow-hidden mt-1">
+                    {/* 구글 맵 iframe */}
+                    <div className="w-full h-50 lg:w-36 lg:h-24 lg:shrink-0 rounded-lg overflow-hidden mt-1 lg:mt-0">
                         <iframe
                             // 여기에 구글 지도에서 복사한 HTML src 주소를 넣습니다. (현재는 서울숲 예시)
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.012574635671!2d127.03713251564756!3d37.54459037980209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca384931a7b1b%3A0x808df8b9d8dc93c1!2sSeoul%20Forest!5e0!3m2!1sen!2skr!4v1684305021234!5m2!1sen!2skr"
@@ -138,16 +153,16 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                 <hr className="border-0 border-t border-[#E6E2DF] mx-4" />
 
                 {/* 코스 정보 */}
-                <div className="flex flex-col gap-4 justify-center py-3.5">
-                    <p className="flex gap-4 pl-4">
+                <div className="flex flex-col lg:flex-row lg:justify-around gap-4 lg:gap-0 justify-center py-3.5">
+                    <p className="flex gap-4 pl-4 lg:pl-0 lg:flex-col lg:items-center lg:gap-2 lg:text-center">
                         <img src="/images/icons/ico-car.svg" alt="차량" />
                         <span className="font-regular text-sm">Private SUV (Up to 6)</span>
                     </p>
-                    <p className="flex gap-4 pl-4">
+                    <p className="flex gap-4 pl-4 lg:pl-0 lg:flex-col lg:items-center lg:gap-2 lg:text-center">
                         <img src="/images/icons/ico-languageBlack.svg" alt="언어" />
                         <span className="font-regular text-sm">German, English, Korean</span>
                     </p>
-                    <p className="flex gap-4 pl-4">
+                    <p className="flex gap-4 pl-4 lg:pl-0 lg:flex-col lg:items-center lg:gap-2 lg:text-center">
                         <img src="/images/icons/ico-camera.svg" alt="사진 스킬" />
                         <span className="font-regular text-sm">Complimentary Pro-Snapshots</span>
                     </p>
@@ -244,11 +259,11 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                                     </div>
                                 </div>
                                 {DataReview[1].coverImgSrc && (
-                                    <div className="bg-gray-100 rounded-lg h-32 mb-3 overflow-hidden">
+                                    <div className="bg-white rounded-lg mb-3 overflow-hidden">
                                         <img
                                             src={DataReview[1].coverImgSrc}
                                             alt={DataReview[1].coverImgAlt}
-                                            className="w-full h-full object-cover"
+                                            className="w-full h-auto object-contain"
                                         />
                                     </div>
                                 )}
@@ -428,8 +443,75 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
                     </div>
                 </div>
 
-                {/* 버튼 섹션 */}
-                <div className="px-4 pb-12.5 flex gap-3 sticky bottom-0 bg-[#FAF9F8]">
+                </div> {/* end 왼쪽 콘텐츠 */}
+
+                {/* 오른쪽 예약 카드 (데스크톱 전용) */}
+                <div className="hidden lg:block lg:w-64 lg:shrink-0">
+                    <div className="border-2 border-[#F66700] rounded-2xl p-5 bg-white sticky top-16">
+                        <h3 className="font-semibold text-sm mb-4">Select date</h3>
+
+                        {/* 날짜 & 시간 */}
+                        <div className="grid grid-cols-2 gap-2 mb-2">
+                            <div className="border border-[#E6E2DF] rounded-lg p-2.5 flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="2" y="3" width="12" height="11" rx="2" stroke="#938F8D" strokeWidth="1.2"/>
+                                    <path d="M4.5 1.5V4" stroke="#938F8D" strokeWidth="1.2" strokeLinecap="round"/>
+                                    <path d="M11.5 1.5V4" stroke="#938F8D" strokeWidth="1.2" strokeLinecap="round"/>
+                                    <path d="M2 6.5H14" stroke="#938F8D" strokeWidth="1.2" strokeLinecap="round"/>
+                                </svg>
+                                <span className="text-xs text-[#938F8D]">Select</span>
+                            </div>
+                            <div className="border border-[#E6E2DF] rounded-lg p-2.5 flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="6" stroke="#938F8D" strokeWidth="1.2"/>
+                                    <path d="M8 5V8.5L10 10" stroke="#938F8D" strokeWidth="1.2" strokeLinecap="round"/>
+                                </svg>
+                                <span className="text-xs text-[#938F8D]">Select</span>
+                            </div>
+                        </div>
+
+                        {/* 인원 & 반려동물 */}
+                        <div className="grid grid-cols-2 gap-2 mb-5">
+                            <div className="border border-[#E6E2DF] rounded-lg p-2.5 flex items-center gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="4.5" r="2.5" stroke="#4A4A4A" strokeWidth="1.2"/>
+                                    <path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="#4A4A4A" strokeWidth="1.2" strokeLinecap="round"/>
+                                </svg>
+                                <span className="text-xs text-[#403C3A]">1 <span className="text-[#938F8D]">/Max3</span></span>
+                            </div>
+                            <div className="border border-[#E6E2DF] rounded-lg p-2.5 flex items-center gap-2">
+                                <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.75 14.2493V3.32132L2.5555 4.76571C3.46736 5.4952 4.60032 5.89262 5.76807 5.89262H9.74958L11.6102 2.17139C12.0458 1.30027 12.9361 0.75 13.9101 0.75H14.8922V3.96413L18.7492 5.24979V6.53545C18.7492 7.95554 17.5979 9.10675 16.1779 9.10675H13.6065V14.2493C13.6065 15.3145 12.7431 16.1778 11.6781 16.1778C10.613 16.1778 9.74958 15.3145 9.74958 14.2493V13.6066C9.74958 12.8965 9.17397 12.3209 8.46392 12.3209H5.89262C5.18258 12.3209 4.60696 12.8965 4.60696 13.6066V14.2493C4.60696 15.3145 3.74355 16.1778 2.67849 16.1778C1.61341 16.1778 0.75 15.3145 0.75 14.2493Z" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.76562 5.724C10.0183 6.75604 11.2059 8.88482 13.9347 9.14361" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span className="text-xs text-[#403C3A]">0 <span className="text-[#938F8D]">/Max3</span></span>
+                            </div>
+                        </div>
+
+                        <hr className="border-[#E6E2DF] mb-4" />
+
+                        {/* 총 요금 */}
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="text-sm text-[#403C3A]">Total fee</span>
+                            <div className="flex items-center gap-1.5">
+                                <span className="text-[#D95500] font-semibold text-base">€ 65</span>
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="7" cy="7" r="6" stroke="#938F8D" strokeWidth="1.2"/>
+                                    <path d="M7 6v4" stroke="#938F8D" strokeWidth="1.2" strokeLinecap="round"/>
+                                    <circle cx="7" cy="4.5" r="0.5" fill="#938F8D"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <button className="w-full bg-[#F66700] hover:bg-[#D95500] text-white font-semibold py-3 rounded-2xl transition-all duration-300 ease-in-out text-sm">
+                            Book now!
+                        </button>
+                    </div>
+                </div>
+                </div> {/* end 2컬럼 래퍼 */}
+
+                {/* 버튼 섹션 (모바일 전용) */}
+                <div className="lg:hidden px-4 pb-12.5 flex gap-3 sticky bottom-0 bg-[#FAF9F8]">
                     {/* <button className="flex-1 border-2 border-[#D95500] text-[#D95500] font-semibold py-3 rounded-lg">
                         Add Course
                     </button> */}
