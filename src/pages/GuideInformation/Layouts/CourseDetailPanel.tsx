@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DataReview } from "./data/DataReview";
 import GnbSecond from "../../../components/GnbSecond";
+import Gnb from "../../../components/Gnb";
 import Rate from "../../../components/Rate";
 
 interface CourseDetailPanelProps {
@@ -20,13 +21,17 @@ export default function CourseDetailPanel({ course, onClose }: CourseDetailPanel
 
     const [isExpanded, setIsExpanded] = useState(false);
     const [showAllReviews, setShowAllReviews] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
         <div className="fixed inset-0 z-50">
             {/* 슬라이드 패널 */}
-            <div className="w-full h-full bg-[#FAF9F8] overflow-y-auto animate-slideInRight">
-                <div className="fixed top-0 z-1000 w-full">
+            <div className={`w-full h-full bg-[#FAF9F8] overflow-y-auto animate-slideInRight transition-all duration-300 ${isSidebarOpen ? 'md:pl-72' : 'md:pl-0'}`}>
+                <div className="fixed top-0 z-1000 w-full md:hidden">
                     <GnbSecond onClose={onClose} />
+                </div>
+                <div className="hidden md:block">
+                    <Gnb isSidebarOpen={isSidebarOpen} onToggleSidebar={() => setIsSidebarOpen(prev => !prev)} />
                 </div>
 
                 {/* 이미지 */}
