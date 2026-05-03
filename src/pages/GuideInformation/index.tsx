@@ -2,10 +2,13 @@ import ProfileSection from "./ProfileSection";
 import InformationSection from "./InformationSection";
 import { useLocation, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Footer from "../../components/Footer";
 import GnbSecond from "../../components/GnbSecond";
+import Gnb from "../../components/Gnb";
 
-export default function GuideInformation(){
+export default function GuideInformation() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const { name, location, star_rate, hashtag_1, hashtag_2, hashtag_3, hashtag_4, hashtag_5, hashtag_6 } = useParams();
     const { state } = useLocation() as {
         state?: {
@@ -47,8 +50,13 @@ export default function GuideInformation(){
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
                 className="fixed inset-0 bg-white z-50 overflow-y-auto"
             >
-                <div className="w-full bg-[#FAF9F8]">
-                    <GnbSecond onClose={() => window.history.back()} />
+                <div className={`w-full bg-[#FAF9F8] transition-all duration-300 ${isSidebarOpen ? 'md:pl-72' : 'md:pl-0'}`}>
+                    <div className="md:hidden">
+                        <GnbSecond onClose={() => window.history.back()} />
+                    </div>
+                    <div className="hidden md:block">
+                        <Gnb isSidebarOpen={isSidebarOpen} onToggleSidebar={() => setIsSidebarOpen(prev => !prev)} />
+                    </div>
                     <ProfileSection data={data}/>
                     <InformationSection />
                     <Footer />

@@ -14,7 +14,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
   return (
     <>
       {/* ─── MOBILE: 상단 네비게이션 바 ─── */}
-      <nav className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300 md:hidden">
+      <nav className="fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300 md:hidden">
         <button
           className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
           aria-label="Menu"
@@ -44,7 +44,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
 
       {/* ─── DESKTOP: 왼쪽 사이드바 ─── */}
       <aside
-        className={`hidden md:flex md:flex-col fixed inset-y-0 left-0 z-[1000] w-72 border-r border-gray-200 bg-[hsl(25,100%,95%,1)] px-6 py-8 shadow-sm transition-transform duration-300 ${
+        className={`hidden md:flex md:flex-col fixed inset-y-0 left-0 z-250 w-72 border-r border-gray-200 bg-[hsl(25,100%,95%,1)] px-6 py-8 shadow-sm transition-transform duration-300 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -63,7 +63,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
         </div>
 
         {/* 프로필 카드 */}
-        <div className="mb-10 rounded-[32px] border border-gray-200 bg-white p-5 shadow-sm md:hidden">
+        <div className="mb-10 rounded-8 border border-gray-200 bg-white p-5 shadow-sm md:hidden">
           <div className="flex items-center gap-3">
             <img src="/images/pics/img-menuProfile.svg" alt="내 프로필" className="h-14 w-14 rounded-full object-cover" />
             <div>
@@ -129,7 +129,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
       </aside>
 
       {/* ─── DESKTOP: 상단 네비게이션 바 ─── */}
-      <div className={`hidden md:flex fixed top-0 left-0 right-0 z-[1000] items-center justify-between px-3.5 py-3 pr-30 backdrop-blur-md transition-all duration-300 ${isSidebarOpen ? 'bg-[hsla(25,100%,95%,0.95)]' : 'hover:bg-[hsla(25,100%,95%,0.95)]'}`}>
+      <div className={`hidden md:flex fixed top-0 left-0 right-0 z-250 items-center justify-between px-3.5 py-3 pr-30 backdrop-blur-md transition-all duration-300 ${isSidebarOpen ? 'bg-[hsla(25,100%,95%,0.95)]' : 'hover:bg-[hsla(25,100%,95%,0.95)]'}`}>
         <div className="flex items-center gap-2">
           <button
             onClick={onToggleSidebar}
@@ -162,12 +162,12 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
 
       {/* ─── MOBILE: 배경 오버레이 ─── */}
       {isClicked && (
-        <div className="fixed inset-0 z-[900] bg-black/20 md:hidden" onClick={() => setIsClicked(false)} />
+        <div className="fixed inset-0 z-225 bg-black/20 md:hidden" onClick={() => setIsClicked(false)} />
       )}
 
       {/* ─── MOBILE: 드롭다운 메뉴 ─── */}
       <div
-        className={`fixed top-16 left-0 right-0 z-[1000] overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${
+        className={`fixed top-16 left-0 right-0 z-250 overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${
           isClicked ? 'max-h-screen' : 'max-h-0'
         }`}
       >
