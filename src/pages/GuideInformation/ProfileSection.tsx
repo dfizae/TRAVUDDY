@@ -128,16 +128,16 @@ export default function ProfileSection({ data }: { data: { name: string; locatio
     
                 {/* 가이드의 차량, 사용 언어, 사진 스킬 - 데스크톱에서 3열 가로 배치 */}
                 <div className="flex flex-col gap-4 justify-center py-3.5 md:flex-row md:justify-between md:gap-0 md:px-4 md:py-3.5">
-                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 md:items-center">
-                        <img src="/images/icons/ico-car.svg" alt="차량" className="w-12 h-12" />
+                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 items-center">
+                        <img src="/images/icons/ico-car.svg" alt="차량" className="w-6 h-6 md:w-12 md:h-12" />
                         <span className="font-regular text-sm">Private SUV (Up to 6)</span>
                     </p>
-                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 md:items-center">
-                        <img src="/images/icons/ico-languageBlack.svg" alt="언어" className="w-12 h-12" />
+                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 items-center">
+                        <img src="/images/icons/ico-languageBlack.svg" alt="언어" className="w-6 h-6 md:w-12 md:h-12" />
                         <span className="font-regular text-sm">German, English, Korean</span>
                     </p>
-                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 md:items-center">
-                        <img src="/images/icons/ico-camera.svg" alt="사진 스킬" className="w-12 h-12" />
+                    <p className="flex md:flex-col gap-4 pl-4 md:pl-0 items-center">
+                        <img src="/images/icons/ico-camera.svg" alt="사진 스킬" className="w-6 h-6 md:w-12 md:h-12" />
                         <span className="font-regular text-sm">Complimentary Pro-Snapshots</span>
                     </p>
                 </div>
