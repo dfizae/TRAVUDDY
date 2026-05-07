@@ -60,8 +60,8 @@ export default function RecommendedCountrySection() {
                                     alt={slide.alt}
                                     className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent" />
-                                <span className="absolute top-3 left-3 text-white font-semibold text-lg">{slide.alt}</span>
+                                <div className="absolute inset-0" />
+                                {/* <span className="absolute top-3 left-3 text-white font-semibold text-lg">{slide.alt}</span> */}
                             </div>
                         </SwiperSlide>
                     ))
