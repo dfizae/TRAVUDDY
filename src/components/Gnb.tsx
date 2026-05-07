@@ -14,7 +14,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
   return (
     <>
       {/* ─── MOBILE: 상단 네비게이션 바 ─── */}
-      <nav className="fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 bg-[hsla(25,100%,95%,0.95)] backdrop-blur-md transition-all duration-300 md:hidden">
+      <nav className="fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 hover:bg-[hsla(25,100%,95%,0.95)] bg-[hsla(25,100%,95%,0.20)] backdrop-blur-md transition-all duration-300 md:hidden">
         <button
           className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
           aria-label="Menu"
@@ -44,9 +44,8 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
 
       {/* ─── DESKTOP: 왼쪽 사이드바 ─── */}
       <aside
-        className={`hidden md:flex md:flex-col fixed inset-y-0 left-0 z-250 w-72 border-r border-gray-200 bg-[hsl(25,100%,95%,1)] px-6 py-8 shadow-sm transition-transform duration-300 ${
-          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`hidden md:flex md:flex-col fixed inset-y-0 left-0 z-250 w-72 bg-white px-6 py-8 shadow-sm transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}
       >
         {/* 로고 + 접기 버튼 */}
         <div className="flex items-center justify-between mb-10">
@@ -109,18 +108,16 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
         <div className="mt-6 flex rounded-full bg-white p-1 shadow-sm">
           <button
             onClick={() => setActiveRole('traveler')}
-            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-              activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
-            }`}
+            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+              }`}
           >
             {activeRole === 'traveler' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
             Traveler
           </button>
           <button
             onClick={() => setActiveRole('guide')}
-            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-              activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
-            }`}
+            className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+              }`}
           >
             {activeRole === 'guide' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
             Guide
@@ -129,18 +126,24 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
       </aside>
 
       {/* ─── DESKTOP: 상단 네비게이션 바 ─── */}
-      <div className={`hidden md:flex fixed top-0 left-0 right-0 z-250 items-center justify-between px-3.5 py-3 pr-30 backdrop-blur-md transition-all duration-300 ${isSidebarOpen ? 'bg-[hsla(25,100%,95%,0.95)]' : 'hover:bg-[hsla(25,100%,95%,0.95)]'}`}>
+      <div className={`hidden md:flex fixed top-0 left-0 right-0 z-250 items-center justify-between px-3.5 py-3 pr-30 backdrop-blur-md transition-all duration-300 ${isSidebarOpen ? 'bg-white' : 'hover:bg-white'}`}>
         <div className="flex items-center gap-2">
           <button
             onClick={onToggleSidebar}
             aria-label="사이드바 토글"
-            className="p-2 rounded-full bg-white shadow-md text-gray-500 hover:text-[#D95500] transition-colors duration-200"
+            className="p-2 rounded-full shadow-md text-gray-500 hover:text-[#D95500] transition-colors duration-200"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 5H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 12H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 19H21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M16.0043 3.99512L15.9932 4.00512" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.0043 3.99512L19.9932 4.00512" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.0043 7.99512L19.9932 8.00512" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.0043 11.9951L19.9932 12.0051" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.0043 15.9951L19.9932 16.0051" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M20.0043 19.9951L19.9932 20.0051" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16.0043 19.9951L15.9932 20.0051" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12.0059 3.99512H4.00586V19.9951H12.0059V3.99512Z" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
+
           </button>
           <img src="/images/icons/ico-logo.svg" alt="Logo" />
         </div>
@@ -158,7 +161,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
           <img src="/images/pics/img-menuProfile.svg" alt="Profile" />
         </div>
       </div>
-      
+
 
       {/* ─── MOBILE: 배경 오버레이 ─── */}
       {isClicked && (
@@ -167,9 +170,8 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
 
       {/* ─── MOBILE: 드롭다운 메뉴 ─── */}
       <div
-        className={`fixed top-16 left-0 right-0 z-250 overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${
-          isClicked ? 'max-h-screen' : 'max-h-0'
-        }`}
+        className={`fixed top-16 left-0 right-0 z-250 overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${isClicked ? 'max-h-screen' : 'max-h-0'
+          }`}
       >
         <div className="p-6">
           <div className="mb-4 font-semibold">
@@ -203,18 +205,16 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
           <div className="flex rounded-full bg-white p-1">
             <button
               onClick={() => setActiveRole('traveler')}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-                activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
-              }`}
+              className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${activeRole === 'traveler' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+                }`}
             >
               {activeRole === 'traveler' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
               Traveler
             </button>
             <button
               onClick={() => setActiveRole('guide')}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${
-                activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
-              }`}
+              className={`flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-3 text-sm font-semibold transition ${activeRole === 'guide' ? 'bg-[#D95500] text-white' : 'text-[#9E9E9E] hover:bg-[#FFF1E6]'
+                }`}
             >
               {activeRole === 'guide' && <img src="/images/icons/ico-selectedCheck.svg" alt="체크된 아이콘" />}
               Guide
