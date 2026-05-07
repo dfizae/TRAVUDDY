@@ -14,7 +14,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
   return (
     <>
       {/* ─── MOBILE: 상단 네비게이션 바 ─── */}
-      <nav className="fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 hover:bg-[hsla(25,100%,95%,0.95)] bg-[hsla(25,100%,95%,0.20)] backdrop-blur-md transition-all duration-300 md:hidden">
+      <nav className={`fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 backdrop-blur-md transition-all duration-300 md:hidden hover:bg-[hsla(25,100%,95%,1)] ${isClicked ? 'bg-[hsl(25,100%,95%,1)]' : 'bg-[hsla(25,100%,95%,0.20)]'}`}>
         <button
           className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
           aria-label="Menu"
