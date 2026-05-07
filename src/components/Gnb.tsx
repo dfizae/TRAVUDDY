@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { GnbMenuData } from './data/GnbMenuData';
 import { GnbSettingData } from './data/GnbSettingData';
 
@@ -10,19 +10,11 @@ interface GnbProps {
 export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [activeRole, setActiveRole] = useState('traveler');
-  const navRef = useRef<HTMLElement>(null);
-  const [navHeight, setNavHeight] = useState(64);
-
-  useEffect(() => {
-    if (navRef.current) {
-      setNavHeight(navRef.current.offsetHeight);
-    }
-  }, []);
 
   return (
     <>
       {/* ─── MOBILE: 상단 네비게이션 바 ─── */}
-      <nav ref={navRef} className={`fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 backdrop-blur-md transition-all duration-300 md:hidden hover:bg-[hsla(25,100%,95%,1)] ${isClicked ? 'bg-[hsl(25,100%,95%,1)]' : 'bg-[hsla(25,100%,95%,0.20)]'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-250 flex items-center justify-between px-3.5 py-3 backdrop-blur-md transition-all duration-300 md:hidden hover:bg-[hsla(25,100%,95%,1)] ${isClicked ? 'bg-[hsl(25,100%,95%,1)]' : 'bg-[hsla(25,100%,95%,0.20)]'}`}>
         <button
           className="cursor-pointer rounded-full p-2 bg-white shadow-sm transition-all hover:opacity-90"
           aria-label="Menu"
@@ -178,8 +170,7 @@ export default function Gnb({ isSidebarOpen, onToggleSidebar }: GnbProps) {
 
       {/* ─── MOBILE: 드롭다운 메뉴 ─── */}
       <div
-        className={`fixed left-0 right-0 z-250 overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${isClicked ? 'max-h-screen' : 'max-h-0'}`}
-        style={{ top: navHeight }}
+        className={`fixed top-16 left-0 right-0 z-250 overflow-hidden bg-[hsl(25,100%,95%,1)] transition-all duration-300 md:hidden ${isClicked ? 'max-h-screen' : 'max-h-0'}`}
       >
         <div className="p-6">
           <div className="mb-4 font-semibold">
