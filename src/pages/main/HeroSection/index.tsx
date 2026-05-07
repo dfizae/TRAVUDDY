@@ -24,17 +24,17 @@ export default function HeroSection() {
 
   return (
     <section>
-      <div className="relative bg-[url('/images/pics/heroBackground.svg')] min-h-[520px] md:min-h-[700px] bg-cover bg-center overflow-visible">
+      <div className="relative bg-[url('/images/pics/heroBackground.svg')] min-h-70 md:min-h-175 bg-cover bg-center overflow-visible">
 
         {/* 제목 - 섹션 정중앙 */}
         <div className="absolute inset-0 flex items-center justify-center px-6 md:px-12 pointer-events-none">
-          <h1 className="text-white text-3xl md:text-5xl font-bold drop-shadow-md text-center max-w-3xl">
+          <h1 className="text-white text-xl md:text-5xl font-bold drop-shadow-md text-center max-w-3xl">
             The Point of your journey
           </h1>
         </div>
 
         {/* 검색창 - 하단 100px */}
-        <div className="absolute bottom-[100px] left-0 right-0 px-6 md:px-12">
+        <div className="absolute bottom-11 md:bottom-25 left-0 right-0 px-6 md:px-12">
           <form action="" className="w-full max-w-4xl mx-auto relative">
             <div className="relative flex items-center">
               <span className="absolute left-5 text-gray-400">
