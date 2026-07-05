@@ -1,4 +1,4 @@
-## 🧳 TRAVUDDY — 여행 가이드 매칭 플랫폼
+## 🧳 TRIPPOINT — 여행 가이드 매칭 플랫폼
 
 <img src="public/images/icons/ico-logo.svg" alt="trippoint logo" width="200" />
 
